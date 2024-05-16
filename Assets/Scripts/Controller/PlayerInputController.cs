@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,12 +8,15 @@ public class PlayerInputController : MonoBehaviour
     private Camera camera;
     Rigidbody2D movementRigidbody;
     private Vector2 movementDirection = Vector2.zero;
+    Animator playerAnimator;
+
     [SerializeField] float speed = 5.0f;
 
     private void Awake()
     {
-        camera = Camera.main; // mainCameraÅÂ±× ºÙ¾îÀÖ´Â Ä«¸Ş¶ó °¡Á®¿È
+        camera = Camera.main; // mainCameraíƒœê·¸ ë¶™ì–´ìˆëŠ” ì¹´ë©”ë¼ ê°€ì ¸ì˜´
         movementRigidbody = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponentInChildren<Animator>();  
     }
 
     private void FixedUpdate()
@@ -21,17 +24,18 @@ public class PlayerInputController : MonoBehaviour
         movementRigidbody.velocity = movementDirection * speed;
     }
 
-    private void OnMove(InputValue value)  // ¿òÁ÷ÀÓÀ» Ã³¸® (Input Actions Send Messages)
+    private void OnMove(InputValue value)  // ì›€ì§ì„ì„ ì²˜ë¦¬ (Input Actions Send Messages)
     {
         Vector2 moveInput = value.Get<Vector2>().normalized;
         movementDirection = moveInput;
+        playerAnimator.SetFloat("Speed", movementDirection.magnitude);
     }
 
-    private void OnLook(InputValue value)   // ÇÃ·¹ÀÌ¾î°¡ ¹Ù¶óº¸´Â ¹æÇâÀ» Ã³¸® (Input Actions Send Messages)
+    private void OnLook(InputValue value)   // í”Œë ˆì´ì–´ê°€ ë°”ë¼ë³´ëŠ” ë°©í–¥ì„ ì²˜ë¦¬ (Input Actions Send Messages)
     {
         Vector2 newAim = value.Get<Vector2>();
         Vector2 worldPos = camera.ScreenToWorldPoint(newAim);
 
-        newAim = (worldPos - (Vector2)transform.position).normalized;       // worldPos - ÇÃ·¹ÀÌ¾î À§Ä¡ °è»ê ½Ã ÇØ´ç ÁöÁ¡À» ¹Ù¶óº¸´Â º¤ÅÍ¸¦ ±¸ÇÒ ¼ö ÀÖÀ½.
+        newAim = (worldPos - (Vector2)transform.position).normalized;       // worldPos - í”Œë ˆì´ì–´ ìœ„ì¹˜ ê³„ì‚° ì‹œ í•´ë‹¹ ì§€ì ì„ ë°”ë¼ë³´ëŠ” ë²¡í„°ë¥¼ êµ¬í•  ìˆ˜ ìˆìŒ.
     }
 }
