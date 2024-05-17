@@ -558,6 +558,7 @@ GameObject:
   - component: {fileID: 734236883}
   - component: {fileID: 734236884}
   - component: {fileID: 734236885}
+  - component: {fileID: 734236886}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -737,6 +738,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpawnPosition: {fileID: 1693051077}
   bulletPrefab: {fileID: 660247380}
+--- !u!114 &734236886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734236876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea63199eb552aef45bcda025928777fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &960006017
 GameObject:
   m_ObjectHideFlags: 0
