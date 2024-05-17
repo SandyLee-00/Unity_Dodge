@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 
@@ -16,16 +16,19 @@ class MonsterBehaviorController : MonsterController
     }
     protected override void FixedUpdate()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            ApplyKnockback(transform, stat.attackSO.knockbackPower, stat.attackSO.knockbackTime);
-        }
         if (knockbackDuration > 0.0f)
         {
             knockbackDuration -= Time.fixedDeltaTime;
         }
         CallMoveEvent(DistanceToTarget());
         CallLookEvent(DistanceToTarget());
+    }
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            ApplyKnockback(transform, stat.attackSO.knockbackPower, stat.attackSO.knockbackTime);
+        }
     }
     private void ApplyLook(Vector2 direction)
     {

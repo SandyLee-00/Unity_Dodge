@@ -51,7 +51,7 @@ public class ProjectileController : MonoBehaviour
         }
         else if (IsLayerMatched(levelCollisionLayer.value, collision.gameObject.layer))
         {
-            // 피격 작성 필요
+            // �ǰ� �ۼ� �ʿ�
             DestroyProjectile(collision.ClosestPoint(transform.position), fxOnDestroy);
         }
     }
@@ -86,7 +86,7 @@ public class ProjectileController : MonoBehaviour
     {
         if (createFx)
         {
-            // 무기 NameTag로 해당하는 무기 FX 가져오기
+            // ���� NameTag�� �ش��ϴ� ���� FX ��������
         }
         
         gameObject.SetActive(false);
