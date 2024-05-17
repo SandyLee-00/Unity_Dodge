@@ -10,12 +10,11 @@ public class UI_PlayPopup : MonoBehaviour
     TextMeshProUGUI ScoreText;
     TextMeshProUGUI LeftTimeText;
 
-
     private void Awake()
     {
-        OptionButton = transform.Find("OptionButton").GetComponent<Button>();
-        ScoreText = transform.Find("ScoreText").GetComponent<TextMeshProUGUI>();
-        LeftTimeText = transform.Find("LeftTimeText").GetComponent<TextMeshProUGUI>();
+        OptionButton = transform.Find("HUD/OptionButton").GetComponent<Button>();
+        ScoreText = transform.Find("HUD/ScoreText").GetComponent<TextMeshProUGUI>();
+        LeftTimeText = transform.Find("HUD/LeftTimeText").GetComponent<TextMeshProUGUI>();
 
         OptionButton.onClick.AddListener(OnClickOptionButton);
     }
@@ -33,6 +32,8 @@ public class UI_PlayPopup : MonoBehaviour
 
     private void OnClickOptionButton()
     {
+        Debug.Log("OnClickOptionButton");
+
         GameObject prefab = Resources.Load<GameObject>($"Prefabs/UI/UI_OptionPopup");
         if (prefab == null)
         {
