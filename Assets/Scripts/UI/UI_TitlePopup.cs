@@ -19,24 +19,24 @@ public class UI_TitlePopup : MonoBehaviour
         ExitButton = transform.Find("ExitButton").GetComponent<Button>();
         OptionButton = transform.Find("OptionButton").GetComponent<Button>();
 
-        // ÇÃ·¹ÀÌ ¾ÀÀ¸·Î ÀÌµ¿ÇÏ±â
+        // í”Œë ˆì´ ì”¬ìœ¼ë¡œ ì´ë™í•˜ê¸°
         StartButton.onClick.AddListener(() =>
         {
             Debug.Log("StartButton Clicked");
             SceneManager.LoadScene("Play");
         });
 
-        // °ÔÀÓ Á¾·áÇÏ±â
+        // ê²Œì„ ì¢…ë£Œí•˜ê¸°
         ExitButton.onClick.AddListener(() =>
         {
             Debug.Log("ExitButton Clicked");
             Application.Quit();
         });
 
-        // TODO : Managers¿¡ UI ¸Å´ÏÀú Ãß°¡ÇÏ±â 
+        // TODO : Managersì— UI ë§¤ë‹ˆì € ì¶”ê°€í•˜ê¸° 
         // Managers.UI.ShowPopup<UI_OptionPopup>();
 
-        // ¿É¼Ç ÆË¾÷ ¶ç¿ì±â
+        // ì˜µì…˜ íŒì—… ë„ìš°ê¸°
         OptionButton.onClick.AddListener(OnClickOptionButton);
     }   
 
