@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b066cba8d87f2f545afa6ba00b9ab664, type: 3}
-  m_Name: RangedAttackSo
+  m_Script: {fileID: 11500000, guid: 7a887a3fca8ba8d4e97fd1fb9fb7c20e, type: 3}
+  m_Name: DefaultAttackSO
   m_EditorClassIdentifier: 
   size: 0
   delay: 0
@@ -20,11 +20,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   isOnKnockBack: 0
-  kncokbackPower: 0
+  knockbackPower: 0
   knockbackTime: 0
-  bulletNameTag: 
-  duration: 0
-  spread: 0
-  numberOfProjectilesPerShot: 0
-  multipleProjectilesAngle: 0
-  projectileColor: {r: 0, g: 0, b: 0, a: 0}
