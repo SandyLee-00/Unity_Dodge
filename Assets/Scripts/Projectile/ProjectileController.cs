@@ -51,7 +51,7 @@ public class ProjectileController : MonoBehaviour
         }
         else if (IsLayerMatched(levelCollisionLayer.value, collision.gameObject.layer))
         {
-            // ÇÇ°Ý ÀÛ¼º ÇÊ¿ä
+            // í”¼ê²© ìž‘ì„± í•„ìš”
             DestroyProjectile(collision.ClosestPoint(transform.position), fxOnDestroy);
         }
     }
@@ -86,7 +86,7 @@ public class ProjectileController : MonoBehaviour
     {
         if (createFx)
         {
-            // ¹«±â NameTag·Î ÇØ´çÇÏ´Â ¹«±â FX °¡Á®¿À±â
+            // ë¬´ê¸° NameTagë¡œ í•´ë‹¹í•˜ëŠ” ë¬´ê¸° FX ê°€ì ¸ì˜¤ê¸°
         }
         
         gameObject.SetActive(false);
