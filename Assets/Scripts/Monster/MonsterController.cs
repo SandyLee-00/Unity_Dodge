@@ -1,34 +1,48 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {   //get MonsterInfo
-    protected Transform Target { get; private set; }
-    public event Action<Vector2> OnMoveEvent; 
-    public event Action<Vector2> OnLookEvent;
-    // Start is called before the first frame update
-    protected virtual void Start()
+    //[SerializeField] protected GameObject Target;
+    protected Vector3 mousePos;
+    protected Rigidbody2D movementRigidbody;
+    protected event Action<Vector2> OnMoveEvent; 
+    protected event Action<Vector2> OnLookEvent;
+    protected Animator animator;
+    public MonsterStat stat;
+
+    protected bool IsAttacking { get; set; }
+
+    protected virtual void Awake()
     {
-        //Target.position = Player.position 
+        movementRigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
     }
 
-    
+    protected virtual void Start()
+    {
+        
+    }
     protected virtual void FixedUpdate()
     {
-        CallLookEvent(DistanceToTarget());
-        CallMoveEvent(DistanceToTarget());
+
     }
+    
+    
     protected Vector2 DistanceToTarget()
     {
-        return new Vector3(1000,1000,0) -transform.position;
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        return mousePos - transform.position;
+        //return Target.position - transfom.position
     }
-    public void CallLookEvent(Vector2 direction)
+    protected void CallLookEvent(Vector2 direction)
     {
         OnLookEvent?.Invoke(direction);
     }
-    public void CallMoveEvent(Vector2 direction)
+    protected void CallMoveEvent(Vector2 direction)
     {
         OnMoveEvent?.Invoke(direction);
     }
