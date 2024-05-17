@@ -4,45 +4,48 @@ using UnityEngine;
 
 public class ObjectPools : MonoBehaviour
 {
-    // 프리팹들을 보관할 변수
-    public GameObject[] prefabs;
+    [System.Serializable]
 
-    // 풀 담당을 하는 리스트들
-    List<GameObject>[] pools;
-
-    void Awake()
+    public class Pool
     {
-        pools = new List<GameObject>[prefabs.Length];
-
-        for (int index = 0; index < pools.Length; index++)
-        {
-            pools[index] = new List<GameObject>();
-        }
+        public string tag;
+        public GameObject prefab;
+        public int size;
     }
 
-    public GameObject Get(int index)
-    {
-        GameObject select = null;
+    public List<Pool> pools = new List<Pool>();
+    public Dictionary<string, Queue<GameObject>> PoolDictionary;
 
-        // 선택한 풀의 비활성화 되어 있는 게임 오브젝트 접근
-        foreach (GameObject item in pools[index])
+    private void Awake()
+    {
+        PoolDictionary = new Dictionary<string, Queue<GameObject>>();
+
+        foreach (var pool in pools)
         {
-            if (!item.activeSelf)
+            Queue<GameObject> queue = new Queue<GameObject>();
+
+            for (int i = 0; i < pool.size; i++)
             {
-                // 발견 시 select 변수에 할당
-                select = item;
-                select.SetActive(true);
-                break;
+                GameObject obj = Instantiate(pool.prefab);
+                obj.SetActive(false);
+                queue.Enqueue(obj);
             }
-        }
 
-        if (select == null)
-        {
-            // 새롭게 생성 후 select 변수에 할당
-            select = Instantiate(prefabs[index], transform);
-            pools[index].Add(select);
+            PoolDictionary.Add(pool.tag, queue);
         }
-
-        return select;
     }
+
+    public GameObject SpawnFromPool(string tag)
+    {
+        if (!PoolDictionary.ContainsKey(tag))
+        {
+            return null;
+        }
+
+        GameObject obj = PoolDictionary[tag].Dequeue();
+        PoolDictionary[tag].Enqueue(obj);
+
+        return obj;
+    }
+
 }
