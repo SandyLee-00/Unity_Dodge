@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC635\uC158"
+  m_text: "\uC635\uC158 / \uD06C\uB798\uB527"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e58c6385e7ea96346b2522c6da06aa7c, type: 2}
   m_sharedMaterial: {fileID: -7107403273287966902, guid: e58c6385e7ea96346b2522c6da06aa7c, type: 2}
@@ -865,6 +865,7 @@ GameObject:
   - component: {fileID: 995991510215987966}
   - component: {fileID: 1494742470553736498}
   - component: {fileID: 1877973325625670167}
+  - component: {fileID: 1813152424264174599}
   m_Layer: 5
   m_Name: UI_TitlePopup
   m_TagString: Untagged
@@ -959,6 +960,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1813152424264174599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7201069558895053374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a7f4dd3a82d6b44b469f96634b68ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8306611320837548150
 GameObject:
   m_ObjectHideFlags: 0
