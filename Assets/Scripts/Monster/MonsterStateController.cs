@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,7 +11,6 @@ partial class MonsterStateController : MonsterController
     public bool isHit = false;
     public float MaxHealth => stat.maxHealth;
     public float CurrentHealth { get; private set; }
-    public MonsterStateController Target;
     public event Action onDeath;
     public event Action<float> onDamage;
     public event Action onAttack;

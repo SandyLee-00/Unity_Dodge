@@ -2,17 +2,16 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 
-class MonsterBehaviorController : MonsterController
+class MonsterMovementController : MonsterController
 {
     private MonsterStateController state;
-    [SerializeField] private SpriteRenderer characterRender;
     private Vector2 knockback = Vector2.zero;
     private float knockbackDuration = 0.0f;
 
     protected override void Start()
     {
+        base.Start();
         OnMoveEvent += ApplyMove;
-        OnLookEvent += ApplyLook;
     }
     protected override void FixedUpdate()
     {
@@ -20,21 +19,19 @@ class MonsterBehaviorController : MonsterController
         {
             knockbackDuration -= Time.fixedDeltaTime;
         }
-        CallMoveEvent(DistanceToTarget());
-        CallLookEvent(DistanceToTarget());
     }
     private void Update()
     {
+        
+        CallMoveEvent(DistanceToTarget());
+        CallLookEvent(DistanceToTarget());
         if (Input.GetMouseButtonDown(0))
         {
             ApplyKnockback(transform, stat.attackSO.knockbackPower, stat.attackSO.knockbackTime);
         }
     }
-    private void ApplyLook(Vector2 direction)
-    {
-        float rotZ = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-        characterRender.flipX = (rotZ) < 0f;
-    }
+    
+  
 
     private void ApplyMove(Vector2 direction)
     {
