@@ -32,6 +32,10 @@ public class UI_PlayPopup : MonoBehaviour
 
     private void OnClickOptionButton()
     {
+        // 게임 시간 멈추기
+        Time.timeScale = 0;
+
+        // 옵션 팝업 생성
         Debug.Log("OnClickOptionButton");
 
         GameObject prefab = Resources.Load<GameObject>($"Prefabs/UI/UI_OptionPopup");
