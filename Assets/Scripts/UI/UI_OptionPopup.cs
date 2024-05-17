@@ -27,7 +27,7 @@ public class UI_OptionPopup : MonoBehaviour
         SoundButton.onClick.AddListener(() =>
         {
             Debug.Log("SoundButton Clicked");
-            // TODO : »ç¿îµå ¹ÂÆ®
+            // TODO : ì‚¬ìš´ë“œ ë®¤íŠ¸
         });
 
         CloseButton.onClick.AddListener(() =>
@@ -35,8 +35,11 @@ public class UI_OptionPopup : MonoBehaviour
             Debug.Log("CloseButton Clicked");
             Destroy(gameObject);
 
-            // TODO : Managers¿¡ UI ¸Å´ÏÀú Ãß°¡ÇÏ±â
+            // TODO : Managersì— UI ë§¤ë‹ˆì € ì¶”ê°€í•˜ê¸°
             // Managers.UI.ClosePopupUI(this);
+
+            // ê²Œì„ ì‹œê°„ ë‹¤ì‹œ ì‹œì‘
+            Time.timeScale = 1;
         });
     }
 
