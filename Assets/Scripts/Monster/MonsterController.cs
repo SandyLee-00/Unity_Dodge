@@ -37,12 +37,11 @@ public class MonsterController : MonoBehaviour
     public Vector2 DistanceToTarget()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        return (mousePos - transform.position).normalized;
+        return mousePos - transform.position;
         //return Target.position - transfom.position
     }
     public void CallLookEvent(Vector2 direction)
     {
-        Debug.Log("바라봄");
         OnLookEvent?.Invoke(direction);
     }
     protected void CallMoveEvent(Vector2 direction)

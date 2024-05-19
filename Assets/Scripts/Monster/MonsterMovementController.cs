@@ -15,16 +15,14 @@ class MonsterMovementController : MonsterController
     }
     protected override void FixedUpdate()
     {
+        base .FixedUpdate();
         if (knockbackDuration > 0.0f)
         {
             knockbackDuration -= Time.fixedDeltaTime;
         }
     }
-    private void Update()
+    protected void Update() 
     {
-        
-        CallMoveEvent(DistanceToTarget());
-        CallLookEvent(DistanceToTarget());
         if (Input.GetMouseButtonDown(0))
         {
             ApplyKnockback(transform, stat.attackSO.knockbackPower, stat.attackSO.knockbackTime);
@@ -35,13 +33,12 @@ class MonsterMovementController : MonsterController
 
     private void ApplyMove(Vector2 direction)
     {
-        direction = direction.normalized * stat.speed;
+        direction =direction.normalized * stat.speed;
         if (knockbackDuration > 0.0f)
         {
             direction += knockback;
         }
         movementRigidbody.velocity = direction;
-        
     }
     private void ApplyKnockback(Transform Other,float power,float duration)
     {
