@@ -8,6 +8,10 @@ public class MonsetAim : MonoBehaviour
     [SerializeField] private Transform armPivot;
     [SerializeField] private SpriteRenderer characterRenderer;
     [SerializeField] private bool isRange;
+    [SerializeField] private Vector3 flipPivotPosition;
+    [SerializeField] private Vector3 originPosition;
+
+
     private MonsterController controller;
 
     private void Awake()
@@ -29,8 +33,8 @@ public class MonsetAim : MonoBehaviour
         }
         
     }
-    Vector2 flippivioposition = new Vector2(-0.432f, 0.04f);
-    Vector2 OriginPosition = new Vector2(0.531f,-0.025f);
+    //flipPivotPosition = new Vector2(-0.432f, 0.04f,0f);
+    //originPosition = new Vector2(0.531f,-0.025f);
     private void ApplyLook(Vector2 direction)
     {
         float rotZ = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
@@ -40,6 +44,7 @@ public class MonsetAim : MonoBehaviour
     {
          float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
          armPivot.rotation = Quaternion.Euler(0, 0, rotZ);
+        characterRenderer.flipX = Mathf.Abs(rotZ) < 90f;
     }
     private void FlipWeapon(Vector2 direction)
     {
@@ -47,13 +52,13 @@ public class MonsetAim : MonoBehaviour
         bool flip =Mathf.Abs(rotZ) > 90f;
         if (flip)
         {
-            armPivot.localPosition = flippivioposition;
+            armPivot.localPosition = flipPivotPosition;
             armPivot.rotation = Quaternion.Euler(0, 0, 51f);
             //armRenderer.transform.localRotation = Quaternion.Euler(0, 0, 60f);
         }
         else
         {
-            armPivot.localPosition = OriginPosition;
+            armPivot.localPosition = originPosition;
             armPivot.rotation = Quaternion.Euler(0, 0, 0f);
             //armRenderer.transform.localRotation = Quaternion.Euler(0, 0, -22f);
 

@@ -5,8 +5,8 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class MonsterController : MonoBehaviour
-{   //get MonsterInfo
-    //[SerializeField] protected GameObject Target;
+{   
+    protected GameObject target;
     protected Vector3 mousePos;
     protected Rigidbody2D movementRigidbody;
     protected event Action<Vector2> OnMoveEvent; 
@@ -20,6 +20,7 @@ public class MonsterController : MonoBehaviour
     {
         movementRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
+        target = GameObject.FindWithTag("Player"); 
     }
 
     protected virtual void Start()
@@ -36,9 +37,9 @@ public class MonsterController : MonoBehaviour
 
     public Vector2 DistanceToTarget()
     {
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        return mousePos - transform.position;
-        //return Target.position - transfom.position
+        //mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //return mousePos - transform.position;
+        return target.transform.position - transform.position;
     }
     public void CallLookEvent(Vector2 direction)
     {
