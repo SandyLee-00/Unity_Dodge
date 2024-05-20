@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 7584844940860802638}
   - component: {fileID: 3217153657923265715}
   - component: {fileID: 1667169077511029485}
-  - component: {fileID: 7217627980713009826}
   - component: {fileID: 7437754471741479080}
   - component: {fileID: 5473373818546010899}
   - component: {fileID: 6520445331349406294}
   - component: {fileID: 6294350689874122865}
+  - component: {fileID: 6020190538313893224}
   m_Layer: 0
   m_Name: Enemy_0
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 186467016078904690}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.79863, y: 15.044365, z: 0}
+  m_LocalPosition: {x: -2.97, y: -1.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa358fe7be645084b8ef073975cefd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: {fileID: 7217627980713009826}
+  stat: {fileID: 0}
 --- !u!114 &1667169077511029485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,23 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd6394b6deb1ba4f846a3fe772938cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: {fileID: 7217627980713009826}
---- !u!114 &7217627980713009826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 186467016078904690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d1c8afd1f371a04c8b3104f3f530d77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statsChangeType: 2
-  maxHealth: 5
-  speed: 3
-  attackSO: {fileID: 11400000, guid: 2f41557d5f1198341bf7e0d247d4836a, type: 2}
+  stat: {fileID: 0}
 --- !u!114 &7437754471741479080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 560c76222e4d2324c9481cc7aeae0ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: {fileID: 7217627980713009826}
+  stat: {fileID: 0}
 --- !u!114 &5473373818546010899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,9 +133,7 @@ MonoBehaviour:
   armRenderer: {fileID: 1005486087374214270}
   armPivot: {fileID: 7700799185439157809}
   characterRenderer: {fileID: 1415792971569825903}
-  isRange: 0
-  flipPivotPosition: {x: -0.432, y: 0.04, z: 0}
-  originPosition: {x: 0.531, y: -0.025, z: 0}
+  isRange: 1
 --- !u!114 &6294350689874122865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +146,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c425a41db065643971f0684e8e7f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6020190538313893224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186467016078904690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 521e544a5ac81204d92c23285be5f26b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statsChangeType: 2
+  maxHealth: 3
+  speed: 3
+  attackSO: {fileID: 11400000, guid: 114d4b5d4e857fb49943ca5e643d2519, type: 2}
 --- !u!1 &574001171430057800
 GameObject:
   m_ObjectHideFlags: 0
