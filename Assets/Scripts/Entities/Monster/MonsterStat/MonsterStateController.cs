@@ -8,10 +8,11 @@ partial class MonsterStateController : MonsterController
     private float timeSinceLastAttack = float.MaxValue;
 
     public event Action onDeath;
-    public event Action<float> onDamage;
+    public event Action onDamage;
     public event Action onAttack;
     public float CurrentHealth { get;  set; }
     public float MaxHealth => stat.maxHealth;
+    public bool isCollidingwithTarget = false;
 
     protected override void Awake()
     {
@@ -20,12 +21,13 @@ partial class MonsterStateController : MonsterController
         CurrentHealth = MaxHealth;
     }
 
-    protected  void Update()
+    protected void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (isCollidingwithTarget)
         {
             animator.SetTrigger("Hit");
             CallDamage();
+            isCollidingwithTarget = false;
         }
         if (CurrentHealth == 0)
         {
@@ -40,6 +42,6 @@ partial class MonsterStateController : MonsterController
     }
     private void CallDamage()
     {
-        onDamage?.Invoke(-stat.attackSO.power);
+        onDamage?.Invoke();
     }
 }

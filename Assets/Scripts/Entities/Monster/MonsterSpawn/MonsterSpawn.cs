@@ -10,7 +10,6 @@ class MonsterSpawn : MonoBehaviour
 
     void Start()
     {
-        // 일정 시간 간격으로 SpawnMonster 메서드를 호출
         InvokeRepeating("Spawn", 0f, spawnInterval);
     }
 

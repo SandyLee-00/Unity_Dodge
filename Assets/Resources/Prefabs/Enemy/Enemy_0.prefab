@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3437225073924345326}
   - component: {fileID: 7584844940860802638}
+  - component: {fileID: 120378486004165771}
   - component: {fileID: 3217153657923265715}
   - component: {fileID: 1667169077511029485}
   - component: {fileID: 7437754471741479080}
@@ -17,9 +18,9 @@ GameObject:
   - component: {fileID: 6520445331349406294}
   - component: {fileID: 6294350689874122865}
   - component: {fileID: 6020190538313893224}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy_0
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 186467016078904690}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.97, y: -1.01, z: 0}
+  m_LocalPosition: {x: -15.175736, y: -19.024263, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -66,7 +67,42 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!70 &120378486004165771
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186467016078904690}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.004896641, y: -0.009792805}
+  m_Size: {x: 0.68607044, y: 1.0489664}
+  m_Direction: 0
 --- !u!114 &3217153657923265715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,7 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa358fe7be645084b8ef073975cefd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: {fileID: 0}
+  target: {fileID: 0}
+  stat: {fileID: 6020190538313893224}
 --- !u!114 &1667169077511029485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,7 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd6394b6deb1ba4f846a3fe772938cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: {fileID: 0}
+  target: {fileID: 0}
+  stat: {fileID: 6020190538313893224}
 --- !u!114 &7437754471741479080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,7 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 560c76222e4d2324c9481cc7aeae0ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: {fileID: 0}
+  target: {fileID: 0}
+  stat: {fileID: 6020190538313893224}
+  isCollidingwithTarget: 0
 --- !u!114 &5473373818546010899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c425a41db065643971f0684e8e7f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthChangeDelay: 0.02
 --- !u!114 &6020190538313893224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +214,7 @@ GameObject:
   - component: {fileID: 5947227602660319647}
   - component: {fileID: 1415792971569825903}
   - component: {fileID: 5560256242607686708}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6067520902381404364}
   - component: {fileID: 1005486087374214270}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7700799185439157809}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeaponPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
