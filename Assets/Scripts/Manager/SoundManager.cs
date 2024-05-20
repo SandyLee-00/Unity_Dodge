@@ -14,17 +14,21 @@ public class SoundManager
     private GameObject _soundRoot = null;
 
     private bool isOn = true;
+
+    // Sound On/Off
     public bool IsOn
     {
         get { return isOn; }
         set 
         { 
-            isOn = value;
+            isOn = value; 
+
+            // 사운드 Off 하면 BGM 끄기
             if (isOn == false)
             {
-                Stop(Define.Sound.Bgm);
+                _audioSources[(int)Define.Sound.Bgm].Stop();
             }
-        }
+        }   
     }
 
     // SoundRoot가 없으면 생성, -BGM, -Effect 오디오소스 생성
@@ -53,12 +57,6 @@ public class SoundManager
 
     public void Play(Define.Sound type, string path)
     {
-        // 사운드가 꺼져있으면 return
-        if (isOn == false)
-        {
-            return;
-        }
-
         AudioSource audioSource = _audioSources[(int)type];
 
         // Sound/ 경로 추가
@@ -83,7 +81,12 @@ public class SoundManager
             }
 
             audioSource.clip = audioClip;
-            audioSource.Play();
+
+            // 사운드 On일 때만 재생
+            if (isOn == true)
+            {
+                audioSource.Play();
+            }
         }
 
         // Effect 재생
@@ -95,7 +98,12 @@ public class SoundManager
                 return;
             }
 
-            audioSource.PlayOneShot(audioClip);
+            // 사운드 On일 때만 재생
+            if (isOn == true)
+            {
+                audioSource.PlayOneShot(audioClip);
+            }
+
             return;
         }
     }
