@@ -16,7 +16,7 @@ partial class MonsterStateController : MonsterController
     protected override void Awake()
     {
         base.Awake();
-        stat = GetComponent<MonsterStat>();
+        stat = GetComponent<CharacterStat>();
         CurrentHealth = MaxHealth;
     }
 
