@@ -38,7 +38,7 @@ https://drive.google.com/file/d/11qvmqeNqghScZhGCihI8cATSwYtxme9E/view?usp=shari
 
 ### 💡 **트러블 슈팅**
 
-**Trouble** 1️⃣
+**Trouble 1️⃣** 
 
 **각자 개발하는 과정에서 MonsterStat과 CharacterStat을 따로 생성하였음.**
 
