@@ -2,7 +2,7 @@ using System;
 
 class MonsterAttack : MonsterStateController
 {
-    public void Start()
+    public new void Start()
     {
         onAttack += OnAttack;
     }
@@ -12,6 +12,6 @@ class MonsterAttack : MonsterStateController
     }
     private void Attack()
     {
-        animator.SetTrigger("Attack");
+        //animatorWeapon.SetTrigger("Attack");
     }
 }

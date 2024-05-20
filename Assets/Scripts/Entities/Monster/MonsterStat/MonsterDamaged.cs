@@ -5,7 +5,7 @@ using UnityEngine.UIElements.Experimental;
 public class MonsterDamaged : MonoBehaviour
 {
     private MonsterStateController state;
-    protected Rigidbody2D rigidbody;
+    protected new Rigidbody2D rigidbody;
     [SerializeField] [Range(0.01f, 0.1f)] float healthChangeDelay = 0.01f;
     private float timeSinceLastChange = float.MaxValue;
     private float attackDamage = 0f;

@@ -12,7 +12,7 @@ using UnityEngine.UI;
 public class UI_PlayPopup : MonoBehaviour
 {
     Button OptionButton;
-    TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI ScoreText;
     TextMeshProUGUI LeftTimeText;
 
     private void Awake()

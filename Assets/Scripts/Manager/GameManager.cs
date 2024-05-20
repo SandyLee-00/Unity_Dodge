@@ -7,7 +7,7 @@ using UnityEngine;
 /// 인게임 로직 처리하기
 /// Model
 /// </summary>
-public class GameManager
+public class GameManager :MonoBehaviour
 {
     public int Score { get; set; } = 0;
     public float LeftSecond { get; set; } = 0.0f;

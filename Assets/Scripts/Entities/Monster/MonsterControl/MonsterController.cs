@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
@@ -12,16 +13,17 @@ public class MonsterController : MonoBehaviour
     protected Rigidbody2D movementRigidbody;
     protected event Action<Vector2> OnMoveEvent; 
     public event Action<Vector2> OnLookEvent;
-    protected Animator animator;
+    [SerializeField]protected Animator animatorCharacter;
+    [SerializeField]protected Animator animatorWeapon;
 
     //protected bool IsAttacking { get; set; }
 
     protected virtual void Awake()
     {
         movementRigidbody = GetComponent<Rigidbody2D>();
-        animator = GetComponentInChildren<Animator>();
         target = GameObject.FindWithTag("Player"); 
         stat = GetComponentInChildren<CharacterStat>();
+        
     }
 
     protected virtual void Start()

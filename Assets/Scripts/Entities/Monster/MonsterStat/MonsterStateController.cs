@@ -26,18 +26,19 @@ partial class MonsterStateController : MonsterController
     {
         if (isCollidingwithTarget)
         {
-            animator.SetTrigger("Hit");
+            animatorCharacter.SetTrigger("Hit");
             CallDamage();
             isCollidingwithTarget = false;
         }
         if (CurrentHealth == 0)
         {
-            animator.SetBool("Dead", true);
+            animatorCharacter.SetBool("Dead", true);
             CallDeath();
         }
         if(timeSinceLastAttack >3f&& DistanceToTarget().magnitude<=5.0f)
         {
             CallAttack();
+            animatorWeapon.SetTrigger("Attack");
             timeSinceLastAttack = 0f;
         }
     }
