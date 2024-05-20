@@ -24,7 +24,6 @@ public class CharacterAnimationController : MonoBehaviour
 
     void Start()
     {
-        // 공격하거나 움직일 때 애니메이션이 같이 반응하도록 구독
         playerController.OnAttackEvent += Attacking;
         playerController.OnMoveEvent += Move;
     }
@@ -34,18 +33,16 @@ public class CharacterAnimationController : MonoBehaviour
         animator.SetBool(IsWalking, obj.magnitude > magnituteThreshold);
     }
 
-    private void Attacking()
+    private void Attacking(AttackSO attakSO)
     {
         animator.SetTrigger(Attack);
     }
 
-    // 아직 피격부분은 없지만 곧 할 것이기 때문에 일단 둡니다.
     private void Hit()
     {
         animator.SetBool(IsHit, true);
     }
 
-    // 아직 피격부분은 없지만 곧 할 것이기 때문에 일단 둡니다.
     private void InvincibilityEnd()
     {
         animator.SetBool(IsHit, false);

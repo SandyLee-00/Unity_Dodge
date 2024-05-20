@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     PlayerInputController playerController;
+    private CharacterStatHandler characterStatHandler;
     Rigidbody2D movementRigidbody;
 
     [SerializeField] float movementSpeed = 5f;
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerController = GetComponent<PlayerInputController>();
         movementRigidbody = GetComponent<Rigidbody2D>();
+        characterStatHandler = GetComponent<CharacterStatHandler>();
     }
 
     private void Start()
@@ -35,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyMovement(Vector2 direction)
     {
-        direction = direction * movementSpeed;
+        direction = direction * characterStatHandler.CurrentStat.speed;
         movementRigidbody.velocity = direction;
     }
 }
