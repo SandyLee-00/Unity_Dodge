@@ -1,9 +1,10 @@
 fileFormatVersion: 2
-guid: 3d1c8afd1f371a04c8b3104f3f530d77
+guid: 521e544a5ac81204d92c23285be5f26b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - attackSO: {fileID: 11400000, guid: 571c3ff1dc3e49145bde46dec93954ec, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

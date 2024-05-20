@@ -8,22 +8,42 @@ public class PlayerInputController : MonoBehaviour
 {
     public event Action<Vector2> OnMoveEvent;
     public event Action<Vector2> OnLookEvent;
-    public event Action OnAttackEvent;
+    public event Action<AttackSO> OnAttackEvent;
 
     private Camera camera;
-    Animator playerAnimator;
-    private bool _isAttacking;
+    private float timeSinceLastAttack = float.MaxValue;
+    private bool isAttacking;
+
+    protected CharacterStatHandler stats { get; private set; }
 
     private void Awake()
     {
         camera = Camera.main;
-        playerAnimator = GetComponentInChildren<Animator>();  
+        stats = GetComponent<CharacterStatHandler>();
+    }
+
+    private void Update()
+    {
+        HandleAttackDelay();
+    }
+
+    private void HandleAttackDelay()
+    {
+        if (timeSinceLastAttack <= stats.CurrentStat.attackSO.delay)
+        {
+            timeSinceLastAttack += Time.deltaTime;
+        }
+
+        if (isAttacking && timeSinceLastAttack > stats.CurrentStat.attackSO.delay)
+        {
+            timeSinceLastAttack = 0;
+            CallAttackEvent(stats.CurrentStat.attackSO);
+        }
     }
 
     private void OnMove(InputValue value)
     {
         Vector2 moveInput = value.Get<Vector2>().normalized;
-        playerAnimator.SetFloat("Speed", moveInput.magnitude);
 
         CallMoveEvent(moveInput);
     }
@@ -39,9 +59,9 @@ public class PlayerInputController : MonoBehaviour
     }
     private void OnFire(InputValue value)
     {
-        _isAttacking = value.isPressed;
+        isAttacking = value.isPressed;
 
-        CallAttackEvent();
+        CallAttackEvent(stats.CurrentStat.attackSO);
     }
 
     public void CallMoveEvent(Vector2 direction)
@@ -54,8 +74,8 @@ public class PlayerInputController : MonoBehaviour
         OnLookEvent?.Invoke(direction);
     }
 
-    public void CallAttackEvent()
+    public void CallAttackEvent(AttackSO attackSO)
     {
-        OnAttackEvent?.Invoke();
+        OnAttackEvent?.Invoke(attackSO);
     }
 }

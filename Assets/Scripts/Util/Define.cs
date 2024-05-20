@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Define : MonoBehaviour
+public class Define
 {
-    // Start is called before the first frame update
-    void Start()
+    public enum Sound
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Bgm,
+        Effect,
+        Max,
     }
 }
