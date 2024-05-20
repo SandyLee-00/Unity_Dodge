@@ -19,6 +19,7 @@ partial class MonsterStateController : MonsterController
         base.Awake();
         stat = GetComponent<CharacterStat>();
         CurrentHealth = MaxHealth;
+        timeSinceLastAttack = 0f;
     }
 
     protected void Update()
@@ -34,6 +35,16 @@ partial class MonsterStateController : MonsterController
             animator.SetBool("Dead", true);
             CallDeath();
         }
+        if(timeSinceLastAttack >3f&& DistanceToTarget().magnitude<=5.0f)
+        {
+            CallAttack();
+            timeSinceLastAttack = 0f;
+        }
+    }
+    protected override void FixedUpdate()
+    { 
+        base.FixedUpdate();
+        timeSinceLastAttack += Time.deltaTime;
     }
 
     private void CallDeath()
@@ -43,5 +54,9 @@ partial class MonsterStateController : MonsterController
     private void CallDamage()
     {
         onDamage?.Invoke();
+    }
+    private void CallAttack()
+    {
+        onAttack?.Invoke();
     }
 }
