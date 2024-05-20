@@ -7,6 +7,9 @@ using UnityEngine.Diagnostics;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// 
+/// </summary>
 public class UI_TitlePopup : MonoBehaviour
 {
     Button StartButton;
@@ -23,14 +26,17 @@ public class UI_TitlePopup : MonoBehaviour
         StartButton.onClick.AddListener(() =>
         {
             Debug.Log("StartButton Clicked");
+
             SceneManager.LoadScene("Play");
             Managers.Sound.Play(Define.Sound.Bgm, "BGM");
+            Managers.Game.Init();
         });
 
         // 게임 종료하기
         ExitButton.onClick.AddListener(() =>
         {
             Debug.Log("ExitButton Clicked");
+
             Application.Quit();
         });
 
