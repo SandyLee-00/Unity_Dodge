@@ -5,12 +5,13 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class MonsterController : MonoBehaviour
-{   //get MonsterInfo
-    //[SerializeField] protected GameObject Target;
+{   
+    protected GameObject target;
     protected Vector3 mousePos;
     protected Rigidbody2D movementRigidbody;
     protected event Action<Vector2> OnMoveEvent; 
-    protected event Action<Vector2> OnLookEvent;
+    public event Action<Vector2> OnLookEvent;
+    public event Action OnAttackEvent;
     protected Animator animator;
     public CharacterStat stat;
 
@@ -20,6 +21,7 @@ public class MonsterController : MonoBehaviour
     {
         movementRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
+        target = GameObject.FindWithTag("Player"); 
     }
 
     protected virtual void Start()
@@ -28,17 +30,24 @@ public class MonsterController : MonoBehaviour
     }
     protected virtual void FixedUpdate()
     {
+        CallLookEvent(DistanceToTarget());
+        CallMoveEvent(DistanceToTarget());
+        if (DistanceToTarget().magnitude <= 7)
+            CallAttackEvent();
+    }
 
-    }
-    
-    
-    protected Vector2 DistanceToTarget()
+    private void CallAttackEvent()
     {
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        return mousePos - transform.position;
-        //return Target.position - transfom.position
+        OnAttackEvent?.Invoke();
     }
-    protected void CallLookEvent(Vector2 direction)
+
+    public Vector2 DistanceToTarget()
+    {
+        //mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //return mousePos - transform.position;
+        return (target.transform.position - transform.position);
+    }
+    public void CallLookEvent(Vector2 direction)
     {
         OnLookEvent?.Invoke(direction);
     }
@@ -46,5 +55,6 @@ public class MonsterController : MonoBehaviour
     {
         OnMoveEvent?.Invoke(direction);
     }
+
 
 }
