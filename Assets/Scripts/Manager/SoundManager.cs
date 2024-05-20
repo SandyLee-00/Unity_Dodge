@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Sound를 BGM, Effect로 나누어 관리
-/// Effect 오디오클립만 _audioClips Dictionary에 저장, 빠르게 꺼내쓰기
+/// Sound瑜?BGM, Effect濡??섎늻??愿由?
+/// Effect ?ㅻ뵒?ㅽ겢由쎈쭔 _audioClips Dictionary????? 鍮좊Ⅴ寃?爰쇰궡?곌린
 /// </summary>
-public class SoundManager
+public class SoundManager 
 {
     private AudioSource[] _audioSources = new AudioSource[(int)Define.Sound.Max];
     private Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>();
@@ -23,13 +23,13 @@ public class SoundManager
         { 
             isOn = value;
 
-            // 사운드 On 하면 BGM 키기
+            // ?ъ슫??On ?섎㈃ BGM ?ㅺ린
             if (isOn)
             {
                 _audioSources[(int)Define.Sound.Bgm].Play();
             }
 
-            // 사운드 Off 하면 BGM 끄기
+            // ?ъ슫??Off ?섎㈃ BGM ?꾧린
             if (isOn == false)
             {
                 _audioSources[(int)Define.Sound.Bgm].Stop();
@@ -37,7 +37,7 @@ public class SoundManager
         }   
     }
 
-    // SoundRoot가 없으면 생성, -BGM, -Effect 오디오소스 생성
+    // SoundRoot媛 ?놁쑝硫??앹꽦, -BGM, -Effect ?ㅻ뵒?ㅼ냼???앹꽦
     public void Init()
     {
         if (_soundRoot == null)
@@ -65,13 +65,13 @@ public class SoundManager
     {
         AudioSource audioSource = _audioSources[(int)type];
 
-        // Sound/ 경로 추가
+        // Sound/ 寃쎈줈 異붽?
         if (path.Contains("Sound/") == false)
         {
             path = string.Format("Sound/{0}", path);
         }
 
-        // BGM 재생
+        // BGM ?ъ깮
         if (type == Define.Sound.Bgm)
         {
             AudioClip audioClip = Resources.Load<AudioClip>(path);
@@ -88,14 +88,14 @@ public class SoundManager
 
             audioSource.clip = audioClip;
 
-            // 사운드 On일 때만 재생
+            // ?ъ슫??On???뚮쭔 ?ъ깮
             if (isOn == true)
             {
                 audioSource.Play();
             }
         }
 
-        // Effect 재생
+        // Effect ?ъ깮
         else if (type == Define.Sound.Effect)
         {
             AudioClip audioClip = GetAudioClip(path);
@@ -104,7 +104,7 @@ public class SoundManager
                 return;
             }
 
-            // 사운드 On일 때만 재생
+            // ?ъ슫??On???뚮쭔 ?ъ깮
             if (isOn == true)
             {
                 audioSource.PlayOneShot(audioClip);
@@ -114,18 +114,18 @@ public class SoundManager
         }
     }
 
-    // Effect AudioClip을 Dictionary에 저장
+    // Effect AudioClip??Dictionary?????
     private AudioClip GetAudioClip(string path)
     {
         AudioClip audioClip = null;
 
-        // Dictionary에 저장된 AudioClip이 있다면 반환
+        // Dictionary????λ맂 AudioClip???덈떎硫?諛섑솚
         if (_audioClips.TryGetValue(path, out audioClip))
         {
             return audioClip;
         }
 
-        // Resources.Load로 AudioClip을 찾아서 Dictionary에 저장
+        // Resources.Load濡?AudioClip??李얠븘??Dictionary?????
         audioClip = Resources.Load<AudioClip>(path);
         if (audioClip == null)
         {
