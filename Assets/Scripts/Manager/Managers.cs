@@ -11,11 +11,11 @@ public class Managers : MonoBehaviour
     public static Managers s_instance = null;
     public static Managers Instance { get { Init(); return s_instance; } }
 
-    private static UIManager s_uiManager = new UIManager();
-    private static SoundManager s_soundManager = new SoundManager();
-    private static GameManager s_gameManager = new GameManager();
+    //private static UIManager s_uiManager;
+    private static SoundManager s_soundManager;
+    private static GameManager s_gameManager;
 
-    public static UIManager UI { get { Init(); return s_uiManager; } }
+    //public static UIManager UI { get { Init(); return s_uiManager; } }
     public static SoundManager Sound { get { Init(); return s_soundManager; } }
     public static GameManager Game { get { Init(); return s_gameManager; } }
 
@@ -27,7 +27,7 @@ public class Managers : MonoBehaviour
 
     void Update()
     {
-
+        Debug.Log(s_gameManager);
     }
 
     private static void Init()
@@ -41,11 +41,18 @@ public class Managers : MonoBehaviour
             }
 
             s_instance = managers.GetOrAddComponent<Managers>();
-            DontDestroyOnLoad(managers);
+            DontDestroyOnLoad(managers); 
+            
+            GameObject gameManager = new GameObject("GameManager");
+            gameManager.transform.SetParent(managers.transform);
+            gameManager.AddComponent<GameManager>();
+            s_gameManager = gameManager.GetComponent<GameManager>();
 
+            s_soundManager = new SoundManager();
             s_soundManager.Init();
 
             Application.targetFrameRate = 60;
+
         }
     }
 }

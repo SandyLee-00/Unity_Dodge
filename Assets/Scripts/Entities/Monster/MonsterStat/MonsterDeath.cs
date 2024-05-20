@@ -19,7 +19,7 @@ public class MonsterDeath: MonoBehaviour
 
     void OnDeath()
     {
-        //gameManager.Score += monsterScore;
+        Managers.Game.Score += 100;
         rigidbody.velocity = Vector3.zero;
         foreach (Behaviour behaviour in GetComponentsInChildren<Behaviour>())
         {

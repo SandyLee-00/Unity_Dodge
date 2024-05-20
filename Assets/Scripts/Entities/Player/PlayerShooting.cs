@@ -12,9 +12,12 @@ public class PlayerShooting : MonoBehaviour
 
     public GameObject bulletPrefab;
 
+    ObjectPool pool;
+
     private void Awake()
     {
         playerController = GetComponent<PlayerInputController>();
+        pool = FindObjectOfType<ObjectPool>();
     }
 
     private void Start()
@@ -48,7 +51,7 @@ public class PlayerShooting : MonoBehaviour
 
     private void CreateProjectile(RangedAttackSO rangedAttackSO, float angle)
     {
-        GameObject obj = GameManagerClone.instance.objectPool.SpawnFromPool(rangedAttackSO.bulletNameTag);
+        GameObject obj = pool.SpawnFromPool(rangedAttackSO.bulletNameTag);
         obj.transform.position = projectileSpawnPosition.position;
         ProjectileController attackController = obj.GetComponent<ProjectileController>();
         attackController.InitializeAttack(RotateVector2(aimDirection, angle), rangedAttackSO);
