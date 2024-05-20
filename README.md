@@ -38,42 +38,42 @@ https://drive.google.com/file/d/11qvmqeNqghScZhGCihI8cATSwYtxme9E/view?usp=shari
 
 ### 💡 **트러블 슈팅**
 
-**Trouble 1️⃣** 
+**1️⃣** 
 
 **각자 개발하는 과정에서 MonsterStat과 CharacterStat을 따로 생성하였음.**
 
 **enum 부분이 동일하게 다른 코드에 존재해 오류가 나는 상황이 발생했음.**
 
 
-**Solution** 🔍
+**[Solution 🔍]** 
 
 **두 파일을 CharacterStat 하나로 통합하여 해결하였음.**
 
 
 
-**Trouble 2️⃣**
+**2️⃣**
 
 **통합 과정에서 Bullet (투사체) Prefab을 수정하여 사용하다가** 
 
 **Merge 시도를 하니 기존 Bullet과 충돌이 나는 현상이 발생하였음.**
 
 
-**Solution** 🔍 
+**[Solution 🔍]**  
 
 **수정한 파일을 삭제하고 기존 Bullet을 사용하게 하니 한 사람만 수정해도 영향이 없었음.**
 
 
 
-**Trouble 3️⃣**
+**3️⃣**
 
  **Monster에게 적중한 투사체를 통해서 Player의 데미지를 가져오는 작업을 수행하고자 했음.**
  
 
-**Solution** 🔍
+**[Solution 🔍]** 
 
 **Player를 추적하도록 설계되어 있는 Monster에서** 
 
-**미리 가져왔던 Player Object를 통해 AttackSO를 가져와 내부의 공격력 값을 받아옴.**
+**미리 가져왔던 Player Object를 통해 AttackSO를 가져와 내부의 공격력 값을 받아와 해결함.**
 
 ---
 
