@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a887a3fca8ba8d4e97fd1fb9fb7c20e, type: 3}
   m_Name: DefaultAttackSO
   m_EditorClassIdentifier: 
-  size: 0
-  delay: 0
-  power: 0
-  speed: 0
+  size: 1
+  delay: 1
+  power: 1
+  speed: 1
   target:
     serializedVersion: 2
     m_Bits: 0
   isOnKnockBack: 0
-  knockbackPower: 0
-  knockbackTime: 0
+  knockbackPower: 2
+  knockbackTime: 1

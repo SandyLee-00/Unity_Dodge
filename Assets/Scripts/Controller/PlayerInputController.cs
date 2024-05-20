@@ -11,19 +11,16 @@ public class PlayerInputController : MonoBehaviour
     public event Action OnAttackEvent;
 
     private Camera camera;
-    Animator playerAnimator;
     private bool _isAttacking;
 
     private void Awake()
     {
         camera = Camera.main;
-        playerAnimator = GetComponentInChildren<Animator>();  
     }
 
     private void OnMove(InputValue value)
     {
         Vector2 moveInput = value.Get<Vector2>().normalized;
-        playerAnimator.SetFloat("Speed", moveInput.magnitude);
 
         CallMoveEvent(moveInput);
     }

@@ -10,7 +10,7 @@ public class MonsterController : MonoBehaviour
     protected Vector3 mousePos;
     protected Rigidbody2D movementRigidbody;
     protected event Action<Vector2> OnMoveEvent; 
-    protected event Action<Vector2> OnLookEvent;
+    public event Action<Vector2> OnLookEvent;
     protected Animator animator;
     public MonsterStat stat;
 
@@ -28,23 +28,27 @@ public class MonsterController : MonoBehaviour
     }
     protected virtual void FixedUpdate()
     {
+        CallLookEvent(DistanceToTarget());
+        CallMoveEvent(DistanceToTarget());
 
     }
-    
-    
-    protected Vector2 DistanceToTarget()
+
+
+    public Vector2 DistanceToTarget()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        return mousePos - transform.position;
+        return (mousePos - transform.position).normalized;
         //return Target.position - transfom.position
     }
-    protected void CallLookEvent(Vector2 direction)
+    public void CallLookEvent(Vector2 direction)
     {
+        Debug.Log("바라봄");
         OnLookEvent?.Invoke(direction);
     }
     protected void CallMoveEvent(Vector2 direction)
     {
         OnMoveEvent?.Invoke(direction);
     }
+
 
 }
