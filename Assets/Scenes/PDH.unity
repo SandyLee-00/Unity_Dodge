@@ -430,6 +430,7 @@ GameObject:
   - component: {fileID: 734236885}
   - component: {fileID: 734236886}
   - component: {fileID: 734236887}
+  - component: {fileID: 734236889}
   - component: {fileID: 734236888}
   m_Layer: 8
   m_Name: Player
@@ -634,11 +635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 728341f2111ffbc4d9ba6325841693fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseStats:
-    statsChangeType: 2
-    maxHealth: 10
-    speed: 5
-    attackSO: {fileID: 11400000, guid: 571c3ff1dc3e49145bde46dec93954ec, type: 2}
+  baseStats: {fileID: 734236889}
   statsModifiers: []
 --- !u!114 &734236888
 MonoBehaviour:
@@ -656,6 +653,22 @@ MonoBehaviour:
   - tag: Bullet
     prefab: {fileID: 1658731030954092748, guid: e06455dda0c96354695481522323249d, type: 3}
     size: 30
+--- !u!114 &734236889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734236876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 521e544a5ac81204d92c23285be5f26b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statsChangeType: 2
+  maxHealth: 20
+  speed: 5
+  attackSO: {fileID: 11400000, guid: 571c3ff1dc3e49145bde46dec93954ec, type: 2}
 --- !u!1 &960006017
 GameObject:
   m_ObjectHideFlags: 0
