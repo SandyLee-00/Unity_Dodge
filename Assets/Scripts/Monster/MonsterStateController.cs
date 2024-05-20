@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -19,7 +19,7 @@ partial class MonsterStateController : MonsterController
     protected override void Awake()
     {
         base.Awake();
-        stat = GetComponent<MonsterStat>();
+        stat = GetComponent<CharacterStat>();
         CurrentHealth = MaxHealth;
         timeSinceLastChange = 0f;
         onDamage += ChangeHealth;
@@ -63,7 +63,7 @@ partial class MonsterStateController : MonsterController
 
         if(CurrentHealth <= 0f)
         {
-            Debug.Log("사망");
+            Debug.Log("?щ쭩");
             
         }
         Debug.Log(CurrentHealth);

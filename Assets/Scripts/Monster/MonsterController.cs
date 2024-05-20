@@ -12,7 +12,7 @@ public class MonsterController : MonoBehaviour
     protected event Action<Vector2> OnMoveEvent; 
     protected event Action<Vector2> OnLookEvent;
     protected Animator animator;
-    public MonsterStat stat;
+    public CharacterStat stat;
 
     protected bool IsAttacking { get; set; }
 
