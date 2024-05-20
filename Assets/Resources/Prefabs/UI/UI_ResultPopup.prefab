@@ -141,7 +141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1290630377, guid: b197aa92a8cc1a74ab024f3748d0dcb6, type: 3}
+  m_Sprite: {fileID: -874310408, guid: b197aa92a8cc1a74ab024f3748d0dcb6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 1825829174738741928}
   - component: {fileID: 3009663389318109797}
   m_Layer: 5
-  m_Name: TitleText
+  m_Name: ResultText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 157838502319280353}
   - component: {fileID: 4875076948056102544}
   m_Layer: 5
-  m_Name: UI_OptionPopup
+  m_Name: UI_ResultPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -762,7 +762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 0.39215687}
+  m_Color: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 0.1764706}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

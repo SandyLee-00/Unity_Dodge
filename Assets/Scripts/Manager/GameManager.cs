@@ -5,7 +5,8 @@ using UnityEngine;
 
 /// <summary>
 /// 인게임 로직 처리하기
-/// Model
+/// Game에서 필요한 데이터 관리하기
+/// 조작은 필요한 부분에서 가져다 쓰기 
 /// </summary>
 public class GameManager
 {

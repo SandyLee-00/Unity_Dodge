@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
-/// ?깃??댁쑝濡?寃뚯엫 ?댁뿉???ъ슜?섎뒗 紐⑤뱺 留ㅻ땲??ㅼ쓣 愿由?
+/// Managers has UI, Sound, Game
 /// </summary>
 public class Managers : MonoBehaviour
 {
@@ -22,7 +22,7 @@ public class Managers : MonoBehaviour
 
     void Start()
     {
-
+        Init();
     }
 
     void Update()
