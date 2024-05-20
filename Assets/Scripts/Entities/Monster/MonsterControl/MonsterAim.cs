@@ -42,7 +42,6 @@ public class MonsetAim : MonoBehaviour
     {
          float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
          armPivot.rotation = Quaternion.Euler(0, 0, rotZ);
-         characterRenderer.flipX = Mathf.Abs(rotZ) < 90f;
     }
     private void FlipWeapon(Vector2 direction)
     {
