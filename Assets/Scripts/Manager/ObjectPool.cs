@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPools : MonoBehaviour
+public class ObjectPool : MonoBehaviour
 {
     [System.Serializable]
 
@@ -44,6 +44,7 @@ public class ObjectPools : MonoBehaviour
 
         GameObject obj = PoolDictionary[tag].Dequeue();
         PoolDictionary[tag].Enqueue(obj);
+        obj.SetActive(true);
 
         return obj;
     }

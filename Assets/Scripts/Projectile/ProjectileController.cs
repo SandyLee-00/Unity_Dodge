@@ -51,7 +51,6 @@ public class ProjectileController : MonoBehaviour
         }
         else if (IsLayerMatched(levelCollisionLayer.value, collision.gameObject.layer))
         {
-            // �ǰ� �ۼ� �ʿ�
             DestroyProjectile(collision.ClosestPoint(transform.position), fxOnDestroy);
         }
     }
@@ -86,9 +85,9 @@ public class ProjectileController : MonoBehaviour
     {
         if (createFx)
         {
-            // ���� NameTag�� �ش��ϴ� ���� FX ��������
+            
         }
-        
+
         gameObject.SetActive(false);
     }
 }

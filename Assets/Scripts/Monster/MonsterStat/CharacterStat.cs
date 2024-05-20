@@ -1,12 +1,12 @@
 using System;
 using UnityEngine;
-
-public enum StatsChangeType 
+public enum StatsChangeType
 {
-    Add,
-    Multiple,
-    Override,
+    Add, // 0
+    Multiple, // 1
+    Override, // 2
 }
+
 
 [Serializable]
 public class CharacterStat : MonoBehaviour
@@ -16,3 +16,4 @@ public class CharacterStat : MonoBehaviour
     [Range(1f, 20f)] public float speed;
     public AttackSO attackSO;
 }
+   

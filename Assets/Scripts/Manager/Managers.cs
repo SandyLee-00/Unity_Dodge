@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
-/// 싱글턴으로 게임 내에서 사용되는 모든 매니저들을 관리
+/// ?깃??댁쑝濡?寃뚯엫 ?댁뿉???ъ슜?섎뒗 紐⑤뱺 留ㅻ땲??ㅼ쓣 愿由?
 /// </summary>
 public class Managers : MonoBehaviour
 {
