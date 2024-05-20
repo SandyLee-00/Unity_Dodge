@@ -5,15 +5,7 @@ using UnityEngine;
 /// <summary>
 /// UI 처리하기
 /// </summary>
-public class UIManager : MonoBehaviour
+public class UIManager
 {
-    void Start()
-    {
-        
-    }
 
-    void Update()
-    {
-        
-    }
 }
