@@ -1,3 +1,4 @@
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
 
@@ -5,8 +6,9 @@ public class MonsterDamaged : MonoBehaviour
 {
     private MonsterStateController state;
     protected Rigidbody2D rigidbody;
-    private float healthChangeDelay = 0.01f;
+    [SerializeField] [Range(0.01f, 0.1f)] float healthChangeDelay = 0.01f;
     private float timeSinceLastChange = float.MaxValue;
+    private float attackDamage = 0f;
     private void Start()
     {
         state = GetComponent<MonsterStateController>();
@@ -21,9 +23,9 @@ public class MonsterDamaged : MonoBehaviour
 
     }
 
-    void Damaged(float damage)
+    void Damaged()
     {
-        float AlphaChange = (damage / state.stat.maxHealth) / 1.5f;
+        float AlphaChange = (attackDamage / state.stat.maxHealth) / 1.5f;
         foreach (SpriteRenderer renderer in GetComponentsInChildren<SpriteRenderer>())
         {
 
@@ -32,21 +34,29 @@ public class MonsterDamaged : MonoBehaviour
             renderer.color = color;
         }
     }
-    void ChangeHealth(float change)
+    void ChangeHealth()
     {
         if (timeSinceLastChange < healthChangeDelay)
         {
             return;
         }
         timeSinceLastChange = 0f;
-        state.CurrentHealth += change;
+        state.CurrentHealth -= attackDamage;
         state.CurrentHealth = Mathf.Clamp(state.CurrentHealth, 0, state.MaxHealth);
 
         if (state.CurrentHealth <= 0f)
         {
-            Debug.Log("사망");
-
+            //二쎌쓬
         }
         Debug.Log(state.CurrentHealth);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Bullet")
+        {
+            attackDamage = state.target.GetComponent<CharacterStatHandler>().CurrentStat.attackSO.power;
+            state.isCollidingwithTarget = true;
+        }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {   
-    protected GameObject target;
+    public GameObject target;
     protected Vector3 mousePos;
     protected Rigidbody2D movementRigidbody;
     protected event Action<Vector2> OnMoveEvent; 

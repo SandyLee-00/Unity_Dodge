@@ -60,8 +60,6 @@ public class PlayerInputController : MonoBehaviour
     private void OnFire(InputValue value)
     {
         isAttacking = value.isPressed;
-
-        CallAttackEvent(stats.CurrentStat.attackSO);
     }
 
     public void CallMoveEvent(Vector2 direction)
