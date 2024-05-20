@@ -12,6 +12,22 @@ public class SoundManager
     private Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>();
 
     private GameObject _soundRoot = null;
+
+    private bool isOn = true;
+    public bool IsOn
+    {
+        get { return isOn; }
+        set 
+        { 
+            isOn = value;
+            if (isOn == false)
+            {
+                Stop(Define.Sound.Bgm);
+            }
+        }
+    }
+
+    // SoundRoot가 없으면 생성, -BGM, -Effect 오디오소스 생성
     public void Init()
     {
         if (_soundRoot == null)
@@ -37,6 +53,12 @@ public class SoundManager
 
     public void Play(Define.Sound type, string path)
     {
+        // 사운드가 꺼져있으면 return
+        if (isOn == false)
+        {
+            return;
+        }
+
         AudioSource audioSource = _audioSources[(int)type];
 
         // Sound/ 경로 추가
@@ -78,6 +100,7 @@ public class SoundManager
         }
     }
 
+    // Effect AudioClip을 Dictionary에 저장
     private AudioClip GetAudioClip(string path)
     {
         AudioClip audioClip = null;
