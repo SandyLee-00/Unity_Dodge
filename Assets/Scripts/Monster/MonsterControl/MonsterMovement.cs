@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 
-class MonsterMovementController : MonsterController
+class MonsterMovement : MonsterController
 {
     private MonsterStateController state;
     private Vector2 knockback = Vector2.zero;
@@ -25,7 +25,7 @@ class MonsterMovementController : MonsterController
     {
         if (Input.GetMouseButtonDown(0))
         {
-            ApplyKnockback(transform, stat.attackSO.knockbackPower, stat.attackSO.knockbackTime);
+            ApplyKnockback(target.transform, stat.attackSO.knockbackPower, stat.attackSO.knockbackTime);//stat of projectile
         }
     }
     
@@ -43,7 +43,7 @@ class MonsterMovementController : MonsterController
     private void ApplyKnockback(Transform Other,float power,float duration)
     {
         knockbackDuration = duration;
-        knockback = -(mousePos - transform.position).normalized * power;
+        knockback = -(Other.position - transform.position).normalized * power;
         
     }
 }

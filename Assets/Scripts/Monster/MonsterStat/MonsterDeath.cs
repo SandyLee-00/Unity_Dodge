@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
 
-public class MonsterDestroy: MonoBehaviour
+public class MonsterDeath: MonoBehaviour
 {
     private MonsterStateController state;
     protected Rigidbody2D rigidbody;

@@ -11,6 +11,7 @@ public class MonsterController : MonoBehaviour
     protected Rigidbody2D movementRigidbody;
     protected event Action<Vector2> OnMoveEvent; 
     public event Action<Vector2> OnLookEvent;
+    public event Action OnAttackEvent;
     protected Animator animator;
     public MonsterStat stat;
 
@@ -31,15 +32,20 @@ public class MonsterController : MonoBehaviour
     {
         CallLookEvent(DistanceToTarget());
         CallMoveEvent(DistanceToTarget());
-
+        if (DistanceToTarget().magnitude <= 7)
+            CallAttackEvent();
     }
 
+    private void CallAttackEvent()
+    {
+        OnAttackEvent?.Invoke();
+    }
 
     public Vector2 DistanceToTarget()
     {
         //mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //return mousePos - transform.position;
-        return target.transform.position - transform.position;
+        return (target.transform.position - transform.position).normalized;
     }
     public void CallLookEvent(Vector2 direction)
     {
