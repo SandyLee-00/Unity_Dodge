@@ -6,22 +6,22 @@ using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {   
-    public GameObject target;
+    [NonSerialized]public GameObject target;
+    [NonSerialized]public CharacterStat stat;
     protected Vector3 mousePos;
     protected Rigidbody2D movementRigidbody;
     protected event Action<Vector2> OnMoveEvent; 
     public event Action<Vector2> OnLookEvent;
-    public event Action OnAttackEvent;
     protected Animator animator;
-    public CharacterStat stat;
 
-    protected bool IsAttacking { get; set; }
+    //protected bool IsAttacking { get; set; }
 
     protected virtual void Awake()
     {
         movementRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         target = GameObject.FindWithTag("Player"); 
+        stat = GetComponentInChildren<CharacterStat>();
     }
 
     protected virtual void Start()
@@ -32,14 +32,8 @@ public class MonsterController : MonoBehaviour
     {
         CallLookEvent(DistanceToTarget());
         CallMoveEvent(DistanceToTarget());
-        if (DistanceToTarget().magnitude <= 7)
-            CallAttackEvent();
     }
 
-    private void CallAttackEvent()
-    {
-        OnAttackEvent?.Invoke();
-    }
 
     public Vector2 DistanceToTarget()
     {
