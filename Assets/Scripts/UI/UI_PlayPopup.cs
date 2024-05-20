@@ -15,6 +15,13 @@ public class UI_PlayPopup : MonoBehaviour
     public TextMeshProUGUI ScoreText;
     TextMeshProUGUI LeftTimeText;
 
+    // TODO: SceneManager에서 씬 
+    // Restart 눌러서 게임 재시작
+    public void Refresh()
+    {
+        Managers.Game.Init();
+    }
+
     private void Awake()
     {
         OptionButton = transform.Find("HUD/OptionButton").GetComponent<Button>();
@@ -26,8 +33,7 @@ public class UI_PlayPopup : MonoBehaviour
 
     void Start()    
     {
-        // TODO : 씬에서 테스트용 남겨놓기, Title -> Play로 이동할 때 Init 호출 코드 있다, 씬매니저에서 씬 시작할 때 호출하도록 수정하기
-        // Managers.Game.Init();
+        Refresh();
     }
 
     void Update()

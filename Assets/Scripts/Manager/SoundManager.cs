@@ -21,7 +21,13 @@ public class SoundManager
         get { return isOn; }
         set 
         { 
-            isOn = value; 
+            isOn = value;
+
+            // 사운드 On 하면 BGM 키기
+            if (isOn)
+            {
+                _audioSources[(int)Define.Sound.Bgm].Play();
+            }
 
             // 사운드 Off 하면 BGM 끄기
             if (isOn == false)
