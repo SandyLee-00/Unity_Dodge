@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class CharacterStatHandler : MonoBehaviour
 {
@@ -20,10 +21,10 @@ public class CharacterStatHandler : MonoBehaviour
             attackSO = Instantiate(baseStats.attackSO);
         }
 
-        CurrentStat = new CharacterStat { attackSO = attackSO };
+        CurrentStat = gameObject.AddComponent<CharacterStat>();
         CurrentStat.statsChangeType = baseStats.statsChangeType;
         CurrentStat.maxHealth = baseStats.maxHealth;
         CurrentStat.speed = baseStats.speed;
-
+        CurrentStat.attackSO = attackSO;
     }
 }
