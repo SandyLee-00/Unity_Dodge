@@ -44,9 +44,12 @@ https://drive.google.com/file/d/11qvmqeNqghScZhGCihI8cATSwYtxme9E/view?usp=shari
 
 **enum 부분이 동일하게 다른 코드에 존재해 오류가 나는 상황이 발생했음.**
 
+
 **Solution** 🔍
 
 **두 파일을 CharacterStat 하나로 통합하여 해결하였음.**
+
+
 
 **Trouble 2️⃣**
 
@@ -54,13 +57,17 @@ https://drive.google.com/file/d/11qvmqeNqghScZhGCihI8cATSwYtxme9E/view?usp=shari
 
 **Merge 시도를 하니 기존 Bullet과 충돌이 나는 현상이 발생하였음.**
 
+
 **Solution** 🔍 
 
 **수정한 파일을 삭제하고 기존 Bullet을 사용하게 하니 한 사람만 수정해도 영향이 없었음.**
 
+
+
 **Trouble 3️⃣**
 
  **Monster에게 적중한 투사체를 통해서 Player의 데미지를 가져오는 작업을 수행하고자 했음.**
+ 
 
 **Solution** 🔍
 
