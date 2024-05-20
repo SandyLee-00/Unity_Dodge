@@ -13,7 +13,7 @@ public class MonsterController : MonoBehaviour
     public event Action<Vector2> OnLookEvent;
     public event Action OnAttackEvent;
     protected Animator animator;
-    public MonsterStat stat;
+    public CharacterStat stat;
 
     protected bool IsAttacking { get; set; }
 
@@ -45,7 +45,7 @@ public class MonsterController : MonoBehaviour
     {
         //mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //return mousePos - transform.position;
-        return (target.transform.position - transform.position).normalized;
+        return (target.transform.position - transform.position);
     }
     public void CallLookEvent(Vector2 direction)
     {

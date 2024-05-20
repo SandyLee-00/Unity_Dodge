@@ -51,9 +51,9 @@ public class MonsetAim : MonoBehaviour
         if (flip)
         {
             armPivot.rotation = Quaternion.Euler(new Vector3(0,0,51f));
-            Debug.Log(direction);
+            
             armRenderer.flipX = true;
-            Debug.Log(armPivot.rotation);
+            
             armPivot.localPosition = flipPivotPosition;
             //armRenderer.transform.localRotation = Quaternion.Euler(0, 0, 60f);
         }
