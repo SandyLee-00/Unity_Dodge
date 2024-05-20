@@ -9,7 +9,7 @@ using UnityEngine;
 public class Managers : MonoBehaviour
 {
     public static Managers s_instance = null;
-    public static Managers Instance { get { return s_instance; } }
+    public static Managers Instance { get { Init(); return s_instance; } }
 
     private static UIManager s_uiManager = new UIManager();
     private static SoundManager s_soundManager = new SoundManager();
@@ -44,6 +44,8 @@ public class Managers : MonoBehaviour
             DontDestroyOnLoad(managers);
 
             s_soundManager.Init();
+
+            Application.targetFrameRate = 60;
         }
     }
 }
