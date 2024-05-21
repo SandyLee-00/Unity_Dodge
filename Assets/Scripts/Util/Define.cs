@@ -10,4 +10,10 @@ public class Define
         Effect,
         Max,
     }
+
+    public enum SceneType
+    {
+        Intro,
+        Play
+    }
 }

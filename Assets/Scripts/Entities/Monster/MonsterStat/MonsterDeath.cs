@@ -16,8 +16,8 @@ public class MonsterDeath: MonoBehaviour
 
     void OnDeath()
     {
-        //Managers.Game.Score += 100;
-        //Managers.Sound.Play(Define.Sound.Effect,$"{deathSound}");
+        Managers.Game.Score += 100;
+        Managers.Sound.Play(Define.Sound.Effect,$"{deathSound}");
         rigidbody.velocity = Vector3.zero;
         foreach (Behaviour behaviour in GetComponentsInChildren<Behaviour>())
         {

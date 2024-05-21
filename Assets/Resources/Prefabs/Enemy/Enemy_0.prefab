@@ -316,7 +316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6430784017767707234
 Transform:
   m_ObjectHideFlags: 0
@@ -326,7 +326,7 @@ Transform:
   m_GameObject: {fileID: 3637304435798683824}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.551514, y: -12.37308, z: 0}
+  m_LocalPosition: {x: 11.2, y: -15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -455,6 +455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterScore: 1
+  deathSound: Dead
 --- !u!114 &4334284997624330805
 MonoBehaviour:
   m_ObjectHideFlags: 0

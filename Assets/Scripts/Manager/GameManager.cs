@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     const float MAXGAMEPLAYTIME = 60f;
 
-    // action으로 게임 끝나면 실행할 함수를 등록
+    // action?쇰줈 寃뚯엫 ?앸굹硫??ㅽ뻾???⑥닔瑜??깅줉
     public event Action<bool> OnGameEnd;
 
     private void Awake()
@@ -67,7 +67,10 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerController = player.GetComponent<PlayerInputController>();
+        if (SceneManager.GetActiveScene().buildIndex == (int)Define.SceneType.Play)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            playerController = player.GetComponent<PlayerInputController>();
+        }
     }
 }
