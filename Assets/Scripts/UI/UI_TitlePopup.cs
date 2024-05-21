@@ -29,7 +29,7 @@ public class UI_TitlePopup : MonoBehaviour
 
             SceneManager.LoadScene("Play");
             Managers.Sound.Play(Define.Sound.Bgm, "BGM");
-            //Managers.Game.Init();
+            Managers.Game.Init();
         });
 
         // 게임 종료하기
@@ -45,7 +45,7 @@ public class UI_TitlePopup : MonoBehaviour
 
         // 옵션 팝업 띄우기
         OptionButton.onClick.AddListener(OnClickOptionButton);
-    }
+    }   
 
     private void OnClickOptionButton()
     {
