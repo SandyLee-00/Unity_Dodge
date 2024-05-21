@@ -14,6 +14,8 @@ public class PlayerInputController : MonoBehaviour
     private float timeSinceLastAttack = float.MaxValue;
     private bool isAttacking;
 
+    public bool isAlive;
+
     protected CharacterStatHandler stats { get; private set; }
 
     private void Awake()
@@ -24,7 +26,8 @@ public class PlayerInputController : MonoBehaviour
 
     private void Update()
     {
-        HandleAttackDelay();
+        if(isAlive)
+            HandleAttackDelay();
     }
 
     private void HandleAttackDelay()
@@ -50,12 +53,16 @@ public class PlayerInputController : MonoBehaviour
 
     private void OnLook(InputValue value)
     {
-        Vector2 newAim = value.Get<Vector2>();
-        Vector2 worldPos = camera.ScreenToWorldPoint(newAim);
+        if (isAlive)
+        {
+            Vector2 newAim = value.Get<Vector2>();
+            Vector2 worldPos = camera.ScreenToWorldPoint(newAim);
 
-        newAim = (worldPos - (Vector2)transform.position).normalized;
+            newAim = (worldPos - (Vector2)transform.position).normalized;
 
-        CallLookEvent(newAim);
+
+            CallLookEvent(newAim);
+        }
     }
     private void OnFire(InputValue value)
     {

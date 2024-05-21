@@ -6,12 +6,27 @@ using UnityEngine.UI;
 public class HPBar : MonoBehaviour
 {
     [SerializeField] private Image fillBar;
+    [SerializeField] CharacterStat characterStat;
 
-    int maxHP;
-    int nowHP;
-    
-    public void DecreaseHP(float amount)
+    float maxHP;
+    float nowHP;
+
+    private void Awake()
     {
+        maxHP = characterStat.maxHealth;
+        nowHP = maxHP;
+    }
+    public bool DecreaseHP(float amount)
+    {
+        if (nowHP <= 0)
+        {
+            nowHP = 0;
+            return false;
+        }
+
+        nowHP -= amount;
         fillBar.fillAmount = (nowHP - amount) / maxHP;
+
+        return true;
     }
 }
