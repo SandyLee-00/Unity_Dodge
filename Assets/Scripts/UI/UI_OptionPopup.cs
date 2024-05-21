@@ -73,9 +73,4 @@ public class UI_OptionPopup : MonoBehaviour
             SoundButton.GetComponent<Image>().sprite = SoundOff;
         }
     }
-
-    void Update()
-    {
-
-    }
 }
