@@ -59,4 +59,9 @@ public class UI_TitlePopup : MonoBehaviour
         GameObject gameObject = Instantiate(prefab);
     }
 
+    private void Start()
+    {
+        Managers.Sound.Play(Define.Sound.Bgm, "IntroBGM");
+    }
+
 }
