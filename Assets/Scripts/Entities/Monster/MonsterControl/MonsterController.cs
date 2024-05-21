@@ -13,8 +13,9 @@ public class MonsterController : MonoBehaviour
     protected Rigidbody2D movementRigidbody;
     protected event Action<Vector2> OnMoveEvent; 
     public event Action<Vector2> OnLookEvent;
-    [SerializeField]protected Animator animatorCharacter;
-    [SerializeField]protected Animator animatorWeapon;
+    [SerializeField]internal Animator animatorCharacter;
+    [SerializeField]internal Animator animatorWeapon;
+    [SerializeField]internal bool isRange;
 
     //protected bool IsAttacking { get; set; }
 
