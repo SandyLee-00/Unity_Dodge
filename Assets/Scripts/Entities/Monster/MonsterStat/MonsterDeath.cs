@@ -5,21 +5,19 @@ public class MonsterDeath: MonoBehaviour
 {
     private MonsterStateController state;
     protected new Rigidbody2D rigidbody;
-    private UI_PlayPopup pppup;
     [SerializeField] int monsterScore;
-    GameManager gameManager;
+    public string deathSound;
     private void Start()
     {
         state = GetComponent<MonsterStateController>();
         rigidbody = GetComponent<Rigidbody2D>();
         state.onDeath += OnDeath;
-        pppup = GetComponent<UI_PlayPopup>();
-        gameManager = GetComponent<GameManager>();
     }
 
     void OnDeath()
     {
-        Managers.Game.Score += 100;
+        //Managers.Game.Score += 100;
+        //Managers.Sound.Play(Define.Sound.Effect,$"{deathSound}");
         rigidbody.velocity = Vector3.zero;
         foreach (Behaviour behaviour in GetComponentsInChildren<Behaviour>())
         {

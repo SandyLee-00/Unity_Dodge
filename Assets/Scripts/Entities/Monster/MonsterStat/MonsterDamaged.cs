@@ -46,8 +46,9 @@ public class MonsterDamaged : MonoBehaviour
 
         if (state.CurrentHealth <= 0f)
         {
-
+            //二쎌쓬
         }
+        Debug.Log(state.CurrentHealth);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

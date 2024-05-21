@@ -404,6 +404,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6757211787704857184, guid: b76825df203bb8c478f6fdd513635db8, type: 3}
+      propertyPath: deathSound
+      value: Dead
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1095,6 +1099,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 416825517069459848, guid: 394ce4e65a53bc144b2f8c91d55d14b8, type: 3}
+      propertyPath: boxSize.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416825517069459848, guid: 394ce4e65a53bc144b2f8c91d55d14b8, type: 3}
+      propertyPath: boxSize.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350949619352046759, guid: 394ce4e65a53bc144b2f8c91d55d14b8, type: 3}
+      propertyPath: deathSound
+      value: Dead
+      objectReference: {fileID: 0}
     - target: {fileID: 9020277976155335802, guid: 394ce4e65a53bc144b2f8c91d55d14b8, type: 3}
       propertyPath: m_Name
       value: Enemy_3
