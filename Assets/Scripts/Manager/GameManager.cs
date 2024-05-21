@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,19 +19,15 @@ public class GameManager : MonoBehaviour
 
     const float MAXGAMEPLAYTIME = 60f;
 
-    // action으로 게임 끝나면 실행할 함수를 등록
+    // action?쇰줈 寃뚯엫 ?앸굹硫??ㅽ뻾???⑥닔瑜??깅줉
     public event Action<bool> OnGameEnd;
 
     private void Awake()
     {
-        Init();
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
-
     public void Init()
     {
-        player = Resources.Load<GameObject>("Prefabs/Player/Player");
-        Instantiate(player);
-
         Time.timeScale = 1.0f;
 
         Score = 0;
@@ -50,9 +47,8 @@ public class GameManager : MonoBehaviour
         {
             LeftSecond -= Time.deltaTime;
 
-            playerController = player.GetComponent<PlayerInputController>();
-
-            // TODO : 플레이어 체력 < 0 이면 게임 종료
+            if (playerController == null) return;
+            
             if (!playerController.isAlive && !IsGameEnd)
             {
                 IsWin = false;
@@ -66,6 +62,15 @@ public class GameManager : MonoBehaviour
             IsWin = true;
             IsGameEnd = true;
             OnGameEnd?.Invoke(IsWin);
+        }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (SceneManager.GetActiveScene().buildIndex == (int)Define.SceneType.Play)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            playerController = player.GetComponent<PlayerInputController>();
         }
     }
 }

@@ -13,7 +13,7 @@ public class PlayerDamaged : MonoBehaviour
 
     BoxCollider2D playerCollider;
 
-    [SerializeField] float healthChangeDelay = 0.5f;
+    [SerializeField] float healthChangeDelay = 0.3f;
     private float timeSinceLastChange = float.MaxValue;
 
     PlayerAnimationController playerAniController;
@@ -38,15 +38,19 @@ public class PlayerDamaged : MonoBehaviour
     }
     private void PlayerHitted()
     {
-        ChangeHealth();
+        if (healthChangeDelay > timeSinceLastChange)
+        {
+            ChangeHealth();
+        }
     }
 
     void ChangeHealth()
     {
-        if(!HPBar.DecreaseHP(1f))
+
+        if (!HPBar.DecreaseHP(1f))
         {
             playerSprite.sprite = deadSprite;
-            
+
             playerController.isAlive = false;
             playerCollider.enabled = false;
 

@@ -21,28 +21,28 @@ public class Managers : MonoBehaviour
     public static GameManager Game { get { Init(); return s_gameManager; } }
 
 
-    private void Awake()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
+    //private void Awake()
+    //{
+    //    SceneManager.sceneLoaded += OnSceneLoaded;
+    //}
     void Start()
     {
         Init();
     }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        // 씬이 로드될 때마다 호출되는 로직
-        CreateGameManager();
-    }
-    private void CreateGameManager()
-    {
-        if (s_gameManager == null)
-        {
-            GameObject gameManager = new GameObject("GameManager", typeof(GameManager));
-            gameManager.transform.parent = transform;
-            s_gameManager = gameManager.GetComponent<GameManager>();
-        }
-    }
+    //private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    //{
+    //    // 씬이 로드될 때마다 호출되는 로직
+    //    CreateGameManager();
+    //}
+    //private void CreateGameManager()
+    //{
+    //    if (s_gameManager == null)
+    //    {
+    //        GameObject gameManager = new GameObject("GameManager", typeof(GameManager));
+    //        gameManager.transform.parent = transform;
+    //        s_gameManager = gameManager.GetComponent<GameManager>();
+    //    }
+    //}
 
     private static void Init()
     {
@@ -55,12 +55,12 @@ public class Managers : MonoBehaviour
             }
 
             s_instance = managers.GetOrAddComponent<Managers>();
-            DontDestroyOnLoad(managers); 
-            
-            //GameObject gameManager = new GameObject("GameManager");
-            //gameManager.transform.SetParent(managers.transform);
-            //gameManager.AddComponent<GameManager>();
-            //s_gameManager = gameManager.GetComponent<GameManager>();
+            DontDestroyOnLoad(managers);
+
+            GameObject gameManager = new GameObject("GameManager");
+            gameManager.transform.SetParent(managers.transform);
+            gameManager.AddComponent<GameManager>();
+            s_gameManager = gameManager.GetComponent<GameManager>();
 
 
             s_soundManager = new SoundManager();

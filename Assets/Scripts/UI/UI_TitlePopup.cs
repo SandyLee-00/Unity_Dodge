@@ -45,7 +45,7 @@ public class UI_TitlePopup : MonoBehaviour
 
         // 옵션 팝업 띄우기
         OptionButton.onClick.AddListener(OnClickOptionButton);
-    }   
+    }
 
     private void OnClickOptionButton()
     {
