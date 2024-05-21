@@ -47,7 +47,7 @@ public class UI_OptionPopup : MonoBehaviour
 
     void Start()
     {
-        // TODO : 사운드 상태에 따라 이미지 변경
+        // Done : 사운드 상태에 따라 이미지 변경
         Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/GameIcon");
 
         // 스프라이트 배열에서 원하는 스프라이트 찾기
