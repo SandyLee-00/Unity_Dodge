@@ -3,28 +3,22 @@ using UnityEngine;
 
 public class MonsterShootingTest : MonoBehaviour
 {
-    public GameObject MosterBulletPrefab;
-    public Transform firePoint;
+    MonsterController monsterController;
+    private Vector2 aimDirection = Vector2.right;
+    [SerializeField] private Transform projectileSpawnPosition;
 
-    //ObjectPool pool;
+    public GameObject bulletPrefab;
 
-    public float MonsterBulletSpeedTest = 3f;
+    ObjectPool pool;
 
-    private void Update()
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ShootMonsterBullet();
-        }
+        monsterController = GetComponent<MonsterController>();
+        pool = GetComponent<ObjectPool>();
     }
 
-    private void ShootMonsterBullet()
+    private void Start()
     {
-        GameObject MonsterBullet = Instantiate(MosterBulletPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody2D rb = MonsterBullet.GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            rb.velocity = firePoint.right * MonsterBulletSpeedTest;
-        }
+        
     }
 }

@@ -264,7 +264,6 @@ GameObject:
   - component: {fileID: 2925473107713003723}
   - component: {fileID: 2761123567795589100}
   - component: {fileID: 2117577229099981162}
-  - component: {fileID: 4268466131359217144}
   m_Layer: 6
   m_Name: Enemy_0 1
   m_TagString: Monster
@@ -467,21 +466,6 @@ MonoBehaviour:
   animatorCharacter: {fileID: 4154840514126702725}
   animatorWeapon: {fileID: 4311853632690693741}
   isCollidingwithTarget: 0
---- !u!114 &4268466131359217144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3637304435798683824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a6693e017ddd6647878ea4f0807037f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MosterBulletPrefab: {fileID: 1658731030954092748, guid: 7d3c427dcd177a4469ff71584a37c806, type: 3}
-  firePoint: {fileID: 467355497779611675}
-  MonsterBulletSpeedTest: 5
 --- !u!1 &6341666018158731038
 GameObject:
   m_ObjectHideFlags: 0
