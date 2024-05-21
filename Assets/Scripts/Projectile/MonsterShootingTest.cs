@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class MonsterShootingTest : MonoBehaviour
@@ -19,6 +20,11 @@ public class MonsterShootingTest : MonoBehaviour
 
     private void Start()
     {
-        
+        monsterController.OnLookEvent += OnAim;
+    }
+
+    private void OnAim(Vector2 direction)
+    {
+        aimDirection = direction;
     }
 }
