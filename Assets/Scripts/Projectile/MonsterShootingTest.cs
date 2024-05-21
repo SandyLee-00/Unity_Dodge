@@ -23,7 +23,7 @@ public class MonsterShootingTest : MonoBehaviour
     private void Start()
     {
         monsterController.OnLookEvent += OnAim;
-        monsterAttack.OnAttackEvent += OnShoot;
+        //monsterAttack.OnAttackEvent += OnShoot;
     }
 
     private void OnAim(Vector2 direction)
