@@ -131,7 +131,7 @@ Transform:
   m_GameObject: {fileID: 6436520199727797819}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.55999994, y: -0.024999619, z: 0}
+  m_LocalPosition: {x: -0.33, y: -0.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -166,7 +166,7 @@ Transform:
   m_GameObject: {fileID: 7015613572281770561}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.232, y: -0.221, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -270,7 +270,7 @@ Transform:
   m_GameObject: {fileID: 7021195946048184511}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.393, y: -0.15600002, z: 0}
+  m_LocalPosition: {x: -0.12, y: 0.58, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -395,6 +395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorCharacter: {fileID: 6026937955799508776}
   animatorWeapon: {fileID: 4466846008364307412}
+  isRange: 1
 --- !u!114 &7974306265190568721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,6 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorCharacter: {fileID: 6026937955799508776}
   animatorWeapon: {fileID: 4466846008364307412}
+  isRange: 0
 --- !u!114 &133919934787722963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,6 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorCharacter: {fileID: 6026937955799508776}
   animatorWeapon: {fileID: 4466846008364307412}
+  isRange: 0
   isCollidingwithTarget: 0
 --- !u!114 &2350949619352046759
 MonoBehaviour:
@@ -452,8 +455,8 @@ MonoBehaviour:
   armRenderer: {fileID: 5678220571526624692}
   armPivot: {fileID: 4434340817098171746}
   characterRenderer: {fileID: 7749491976461274410}
-  flipPivotPosition: {x: 0.4, y: 0.08, z: 0}
-  originPosition: {x: -0.138, y: -0.08, z: 0}
+  flipPivotPosition: {x: 0.4, y: -0.24, z: 0}
+  originPosition: {x: -0.33, y: -0.24, z: 0}
 --- !u!114 &2177459414475042840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,6 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorCharacter: {fileID: 6026937955799508776}
   animatorWeapon: {fileID: 4466846008364307412}
+  isRange: 1
   isCollidingwithTarget: 0
   pos: {fileID: 5612086881060289898}
   boxSize: {x: 2, y: 2}
