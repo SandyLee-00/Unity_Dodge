@@ -17,8 +17,6 @@ public class UI_PlayPopup : MonoBehaviour
 
     float leftSecond;
 
-    // TODO: SceneManager에서 씬 
-    // Restart 눌러서 게임 재시작
     public void Refresh()
     {
         Managers.Game.Init();
@@ -30,7 +28,7 @@ public class UI_PlayPopup : MonoBehaviour
         ScoreText = transform.Find("HUD/ScoreText").GetComponent<TextMeshProUGUI>();
         LeftTimeText = transform.Find("HUD/LeftTimeText").GetComponent<TextMeshProUGUI>();
 
-        OptionButton.onClick.AddListener(OnClickOptionButton);
+        OptionButton.onClick.AddListener(OnOptionButton);
 
         Managers.Game.OnGameEnd += ShowResultPopup;
     }
@@ -58,13 +56,13 @@ public class UI_PlayPopup : MonoBehaviour
         ScoreText.text = $"{Managers.Game.Score:N0}점";  
     }
 
-    private void OnClickOptionButton()
+    private void OnOptionButton()
     {
         // 게임 시간 멈추기
         Time.timeScale = 0;
 
         // 옵션 팝업 생성
-        Debug.Log("OnClickOptionButton");
+        Debug.Log("OnOptionButton");
 
         GameObject prefab = Resources.Load<GameObject>($"Prefabs/UI/UI_OptionPopup");
         if (prefab == null)
