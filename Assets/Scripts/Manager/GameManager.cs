@@ -5,11 +5,6 @@ using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-/// <summary>
-/// ?멸쾶??濡쒖쭅 泥섎━?섍린
-/// Game?먯꽌 ?꾩슂???곗씠??愿由ы븯湲?
-/// 議곗옉? ?꾩슂??遺遺꾩뿉??媛?몃떎 ?곌린 
-/// </summary>
 public class GameManager : MonoBehaviour
 {
     public int Score { get; set; } = 0;
@@ -19,10 +14,17 @@ public class GameManager : MonoBehaviour
 
     GameObject player;
 
-    const float MAXGAMEPLAYTIME = 5.0f;
+    PlayerInputController playerController;
+
+    const float MAXGAMEPLAYTIME = 60f;
 
     // action으로 게임 끝나면 실행할 함수를 등록
     public event Action<bool> OnGameEnd;
+
+    private void Awake()
+    {
+        Init();
+    }
 
     public void Init()
     {
@@ -48,13 +50,15 @@ public class GameManager : MonoBehaviour
         {
             LeftSecond -= Time.deltaTime;
 
+            playerController = player.GetComponent<PlayerInputController>();
+
             // TODO : 플레이어 체력 < 0 이면 게임 종료
-            /*if (&& !IsGameEnd)
+            if (!playerController.isAlive && !IsGameEnd)
             {
                 IsWin = false;
                 IsGameEnd = true;
                 OnGameEnd?.Invoke(IsWin);
-            }*/
+            }
         }
         else if (LeftSecond <= 0 && !IsGameEnd)
         {

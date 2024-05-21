@@ -27,7 +27,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ApplyMovement(movementDirection);
+        if(playerController.isAlive)
+        {
+            ApplyMovement(movementDirection);
+        }
+        else
+        {
+            Destroy(movementRigidbody);
+        }
     }
 
     private void Move(Vector2 direction)
