@@ -47,21 +47,21 @@ public class UI_TitlePopup : MonoBehaviour
         OptionButton.onClick.AddListener(OnClickOptionButton);
     }   
 
-    private void Start()
-    {
-        
-    }
-
     private void OnClickOptionButton()
     {
         GameObject prefab = Resources.Load<GameObject>($"Prefabs/UI/UI_OptionPopup");
         if (prefab == null)
         {
-            Debug.Log($"Failed to load prefab : UI/UI_OptionPopup");
+            Debug.LogError($"Failed to load prefab : UI/UI_OptionPopup");
             return;
         }
 
         GameObject gameObject = Instantiate(prefab);
+    }
+
+    private void Start()
+    {
+        Managers.Sound.Play(Define.Sound.Bgm, "IntroBGM");
     }
 
 }
