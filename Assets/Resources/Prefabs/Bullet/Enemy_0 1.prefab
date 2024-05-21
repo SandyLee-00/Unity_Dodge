@@ -364,6 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorCharacter: {fileID: 4154840514126702725}
   animatorWeapon: {fileID: 4311853632690693741}
+  isRange: 0
 --- !u!114 &6381357695638980215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorCharacter: {fileID: 4154840514126702725}
   animatorWeapon: {fileID: 4311853632690693741}
+  isRange: 0
 --- !u!114 &147791396562060279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,6 +394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorCharacter: {fileID: 4154840514126702725}
   animatorWeapon: {fileID: 4311853632690693741}
+  isRange: 0
   isCollidingwithTarget: 0
 --- !u!114 &6757211787704857184
 MonoBehaviour:
@@ -421,7 +424,8 @@ MonoBehaviour:
   armRenderer: {fileID: 3126649816053463215}
   armPivot: {fileID: 4082053372567026973}
   characterRenderer: {fileID: 7843805985689908043}
-  isRange: 0
+  flipPivotPosition: {x: 0, y: 0, z: 0}
+  originPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &2925473107713003723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,7 +469,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorCharacter: {fileID: 4154840514126702725}
   animatorWeapon: {fileID: 4311853632690693741}
+  isRange: 0
   isCollidingwithTarget: 0
+  pos: {fileID: 0}
+  boxSize: {x: 0, y: 0}
 --- !u!1 &6341666018158731038
 GameObject:
   m_ObjectHideFlags: 0
