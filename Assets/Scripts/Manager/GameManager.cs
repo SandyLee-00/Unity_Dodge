@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
         player = Resources.Load<GameObject>("Prefabs/Player/Player");
         Instantiate(player);
 
+        Time.timeScale = 1.0f;
+
         Score = 0;
         LeftSecond = MAXGAMEPLAYTIME;
         IsWin = false;
@@ -62,6 +64,4 @@ public class GameManager : MonoBehaviour
             OnGameEnd?.Invoke(IsWin);
         }
     }
-
-
 }

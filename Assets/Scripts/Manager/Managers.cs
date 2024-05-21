@@ -27,7 +27,7 @@ public class Managers : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(s_gameManager);
+
     }
 
     private static void Init()
