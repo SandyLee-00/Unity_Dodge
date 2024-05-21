@@ -7,9 +7,8 @@ public class MonsetAim : MonoBehaviour
     [SerializeField] private SpriteRenderer armRenderer;
     [SerializeField] private Transform armPivot;
     [SerializeField] private SpriteRenderer characterRenderer;
-    [SerializeField] private bool isRange;
-    //[SerializeField] private Vector3 flipPivotPosition;
-    //[SerializeField] private Vector3 originPosition;
+    [SerializeField] private Vector3 flipPivotPosition;
+    [SerializeField] private Vector3 originPosition;
     private MonsterController controller;
 
     private void Awake()
@@ -19,7 +18,7 @@ public class MonsetAim : MonoBehaviour
     }
     private void OnAim(Vector2 direction)
     {
-        if (!isRange)
+        if (!controller.isRange)
         {
             ApplyLook(direction);
             FlipWeapon(direction);
@@ -31,8 +30,9 @@ public class MonsetAim : MonoBehaviour
         }
         
     }
-    Vector2 flipPivotPosition = new Vector2(-0.432f, 0.04f);
-    Vector2 originPosition = new Vector2(0.531f,-0.025f);
+    //Vector2 flipPivotPosition = new Vector2(-0.432f, 0.04f);
+    //Vector2 originPosition = new Vector2(0.531f,-0.025f);
+    //Enemy3 Vector2(0.748,-0.909)/ (-0.138,-0.08)
     private void ApplyLook(Vector2 direction)
     {
         float rotZ = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
