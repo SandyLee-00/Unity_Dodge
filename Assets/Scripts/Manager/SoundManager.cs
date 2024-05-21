@@ -61,7 +61,7 @@ public class SoundManager
         }
     }
 
-    public void Play(Define.Sound type, string path)
+    public void Play(Define.Sound type, string path, float volume = 0.2f)
     {
         AudioSource audioSource = _audioSources[(int)type];
 
@@ -70,6 +70,8 @@ public class SoundManager
         {
             path = string.Format("Sound/{0}", path);
         }
+
+        audioSource.volume = volume;
 
         // BGM ?ъ깮
         if (type == Define.Sound.Bgm)
