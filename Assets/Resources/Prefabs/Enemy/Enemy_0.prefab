@@ -316,7 +316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6430784017767707234
 Transform:
   m_ObjectHideFlags: 0
@@ -410,6 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorCharacter: {fileID: 4154840514126702725}
   animatorWeapon: {fileID: 4311853632690693741}
+  isRange: 0
 --- !u!114 &6381357695638980215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,6 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorCharacter: {fileID: 4154840514126702725}
   animatorWeapon: {fileID: 4311853632690693741}
+  isRange: 0
 --- !u!114 &147791396562060279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,6 +440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorCharacter: {fileID: 4154840514126702725}
   animatorWeapon: {fileID: 4311853632690693741}
+  isRange: 0
   isCollidingwithTarget: 0
 --- !u!114 &6757211787704857184
 MonoBehaviour:
@@ -512,6 +515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorCharacter: {fileID: 4154840514126702725}
   animatorWeapon: {fileID: 4311853632690693741}
+  isRange: 0
   isCollidingwithTarget: 0
   pos: {fileID: 2909074005649366344}
   boxSize: {x: 0.85, y: 1.26}

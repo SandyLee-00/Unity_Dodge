@@ -20,7 +20,8 @@ class MonsterAttack : MonsterStateController
         {
             if(colider.tag == "Player")
             {
-                //colider.getComponent<CharacterStatHandler>().TakeDamage(1);
+                target.SendMessage("CallHittedEvent");
+                
                 Debug.Log(colider+"공격");
             }
 
