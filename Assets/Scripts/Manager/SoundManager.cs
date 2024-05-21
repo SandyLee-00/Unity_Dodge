@@ -46,7 +46,7 @@ public class SoundManager
             if (_soundRoot == null)
             {
                 _soundRoot = new GameObject { name = "@SoundRoot" };
-                UnityEngine.Object.DontDestroyOnLoad(_soundRoot);
+                _soundRoot.transform.SetParent(GameObject.Find("@Managers").transform);
 
                 string[] soundTypeNames = System.Enum.GetNames(typeof(Define.Sound));
                 for (int count = 0; count < soundTypeNames.Length - 1; count++)
