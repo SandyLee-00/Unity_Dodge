@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using Random = System.Random;
 
@@ -14,15 +15,20 @@ class Spawner : MonoBehaviour
     private Transform player;
     ObjectPool pool;
 
-    [SerializeField] 
-    private GameObject monsterPrefab;
+    [SerializeField]
+    List<GameObject> monsterPrefabs;
     [SerializeField] 
     private float monsterSpawnInterval = 2;
 
     [SerializeField]
-    List<GameObject> itemPrefab;
+    List<GameObject> itemPrefabs;
     [SerializeField]
     private float itemSpawnInterval = 3;
+
+    [SerializeField]
+    List<GameObject> RushMonsterPrefabs;
+    [SerializeField]
+    private float RushSpawnInterval = 2;
 
     private void Awake()
     {
@@ -36,20 +42,29 @@ class Spawner : MonoBehaviour
         InvokeRepeating("SpawnMonster", 0f, monsterSpawnInterval);
 
         InvokeRepeating("SpawnItem", 0f, itemSpawnInterval);
+
+        InvokeRepeating("SpawnRush", 0f, RushSpawnInterval);
     }
 
     private void SpawnMonster()
     {
-        Instantiate(monsterPrefab, transform);
-        
-        monsterPrefab.transform.position = GetRandomSpawnPosition(player.position, 20, 10);
+        // random monster
+        int randomIndex = random.Next(0, monsterPrefabs.Count);
+        GameObject monster = monsterPrefabs[randomIndex];
+        string monsterName = monster.name;
+
+        Debug.Log(monsterName);
+
+        Vector3 spawnPosition = GetRandomSpawnPosition(player.position, 20, 10);
+
+        Instantiate(monster, spawnPosition, Quaternion.identity);
     }
 
     private void SpawnItem()
     {
         // random item
-        int randomIndex = random.Next(0, itemPrefab.Count);
-        GameObject item = itemPrefab[randomIndex];
+        int randomIndex = random.Next(0, itemPrefabs.Count);
+        GameObject item = itemPrefabs[randomIndex];
         string itemName = item.name;
 
         Debug.Log(itemName);
@@ -57,6 +72,19 @@ class Spawner : MonoBehaviour
 
         // random position
         spawnedItem.transform.position = GetRandomSpawnPosition(player.position, 5, 1);
+    }
+
+    private void SpawnRush()
+    {
+        int randomIndex = random.Next(0, RushMonsterPrefabs.Count);
+        GameObject rush = RushMonsterPrefabs[randomIndex];
+        string rushName = rush.name;
+
+        Debug.Log(rushName);
+
+        Vector3 spawnPosition = GetRandomSpawnPosition(player.position, 20, 10);
+
+        Instantiate(rush, spawnPosition, Quaternion.identity);
     }
 
     private Vector2 GetRandomSpawnPosition(Vector2 center, int maxRadius, int minRadius = 0)
