@@ -4,32 +4,49 @@ using UnityEngine;
 
 public class SpawnTest : MonoBehaviour
 {
-    public ObjectPoolTest pool;
-
+    //public ObjectPool pool;
+    public GameObject monsterPrefab;
     public Transform[] spawnPointTest;
 
-    float timerTest;
+    float timer;
 
     private void Awake()
     {
         spawnPointTest = GetComponentsInChildren<Transform>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        timerTest += Time.deltaTime;
+        timer += Time.deltaTime;
 
-        if (timerTest > 1f)
+        if (timer > 4f)
         {
             MonsterSpawnTest();
-            timerTest = 0f;
+            timer = 0f;
         }
     }
 
     private void MonsterSpawnTest()
     {
-        GameObject monsterTest = pool.Get(0);
-        monsterTest.transform.position = spawnPointTest[Random.Range(1, spawnPointTest.Length)].position;
+        GameObject monsterTest = Instantiate(monsterPrefab);
+        
+        if (monsterTest != null )
+        {
+            //monsterTest.transform.position = spawnPointTest[Random.Range(1, spawnPointTest.Length)].position;
+            Transform spawnPoint = spawnPointTest[Random.Range(1, spawnPointTest.Length)];
+            monsterTest.transform.position = spawnPoint.position;
+            //Invoke("DestroyMonster", 3f);
+            Destroy(monsterTest, 3f);
+        }
     }
+
+    //private void DestroyMonster()
+    //{
+    //    GameObject[] monsters = GameObject.FindGameObjectsWithTag("MonsterBullet");
+
+    //    foreach (GameObject monster in monsters)
+    //    {
+    //        Destroy(monster);
+    //    }
+    //}
 }

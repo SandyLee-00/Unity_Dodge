@@ -8,6 +8,8 @@ TagManager:
   - Area
   - Bullet
   - Monster
+  - MonsterBullet
+  - RushMonster
   layers:
   - Default
   - TransparentFX
