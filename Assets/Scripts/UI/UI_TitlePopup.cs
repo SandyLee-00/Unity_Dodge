@@ -29,7 +29,6 @@ public class UI_TitlePopup : MonoBehaviour
 
             SceneManager.LoadScene("Play");
             Managers.Sound.Play(Define.Sound.Bgm, "BGM");
-            Managers.Game.Init();
         });
 
         // 게임 종료하기

@@ -8,7 +8,7 @@ TagManager:
   - Area
   - Bullet
   - Monster
-  - MonsterBullet
+  - Item
   layers:
   - Default
   - TransparentFX
