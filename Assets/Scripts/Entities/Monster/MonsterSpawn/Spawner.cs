@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using Random = System.Random;
 
@@ -24,6 +25,11 @@ class Spawner : MonoBehaviour
     [SerializeField]
     private float itemSpawnInterval = 3;
 
+    [SerializeField]
+    List<GameObject> RushMonsterPrefabs;
+    [SerializeField]
+    private float RushSpawnInterval = 2;
+
     private void Awake()
     {
         pool = GetComponent<ObjectPool>();
@@ -36,6 +42,8 @@ class Spawner : MonoBehaviour
         InvokeRepeating("SpawnMonster", 0f, monsterSpawnInterval);
 
         InvokeRepeating("SpawnItem", 0f, itemSpawnInterval);
+
+        InvokeRepeating("SpawnRush", 0f, RushSpawnInterval);
     }
 
     private void SpawnMonster()
@@ -64,6 +72,19 @@ class Spawner : MonoBehaviour
 
         // random position
         spawnedItem.transform.position = GetRandomSpawnPosition(player.position, 5, 1);
+    }
+
+    private void SpawnRush()
+    {
+        int randomIndex = random.Next(0, RushMonsterPrefabs.Count);
+        GameObject rush = RushMonsterPrefabs[randomIndex];
+        string rushName = rush.name;
+
+        Debug.Log(rushName);
+
+        Vector3 spawnPosition = GetRandomSpawnPosition(player.position, 20, 10);
+
+        Instantiate(rush, spawnPosition, Quaternion.identity);
     }
 
     private Vector2 GetRandomSpawnPosition(Vector2 center, int maxRadius, int minRadius = 0)

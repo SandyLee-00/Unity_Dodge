@@ -43,7 +43,10 @@ public class PlayerAnimationController : MonoBehaviour
 
     private void Hit()
     {
-        animator.SetTrigger(IsHit);
+        if (!playerDamageController.GetInvincibleStatus())
+        {
+            animator.SetTrigger(IsHit);
+        }
     }
 
     public void Dead()

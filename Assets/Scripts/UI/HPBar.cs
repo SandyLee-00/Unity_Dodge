@@ -8,6 +8,8 @@ public class HPBar : MonoBehaviour
     [SerializeField] private Image fillBar;
     [SerializeField] CharacterStat characterStat;
 
+    public bool IsInvincible = false;
+
     float maxHP;
     float nowHP;
 
@@ -22,6 +24,11 @@ public class HPBar : MonoBehaviour
         {
             nowHP = 0;
             return false;
+        }
+
+        if (IsInvincible)
+        {
+            return true;
         }
 
         nowHP -= amount;

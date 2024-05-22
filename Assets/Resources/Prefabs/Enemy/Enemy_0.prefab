@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f87b708d208c9649873978c167c6485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterScore: 1
+  monsterScore: 20
   deathSound: Dead
 --- !u!114 &4334284997624330805
 MonoBehaviour:

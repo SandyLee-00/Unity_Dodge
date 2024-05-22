@@ -2,10 +2,9 @@ using System;
 using TreeEditor;
 using UnityEngine;
 
-public class RushMonsterTest : MonoBehaviour
+public class RushMonsterContoller : MonoBehaviour
 {
     [SerializeField] private float speed = 1f;
-    private ObjectPool objPool;
 
     private GameObject player;
     private Vector3 targetDir;
@@ -14,7 +13,6 @@ public class RushMonsterTest : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindWithTag("Player");
-        objPool = FindObjectOfType<ObjectPool>();
     }
 
     private void Start()
@@ -48,7 +46,7 @@ public class RushMonsterTest : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
+    {   
         if (collision.CompareTag("Player"))
         {
             player.GetComponentInChildren<HPBar>().DecreaseHP(2);
