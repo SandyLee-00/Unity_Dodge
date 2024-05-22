@@ -1,3 +1,4 @@
+using System;
 using TreeEditor;
 using UnityEngine;
 
@@ -22,8 +23,14 @@ public class RushMonsterTest : MonoBehaviour
         {
             targetDir = (player.transform.position - transform.position);
             isRushing = true;
+
+            if (targetDir.x < 0)
+            {
+                FlipSprite(true);
+            }
         }
     }
+
 
     private void Update()
     {
@@ -31,5 +38,12 @@ public class RushMonsterTest : MonoBehaviour
         {
             transform.position += targetDir * speed * Time.deltaTime;
         }
+    }
+    
+    private void FlipSprite(bool v)
+    {
+        Vector3 scale = transform.localScale;
+        scale.x = v ? -1 : 1;
+        transform.localScale = scale;
     }
 }
