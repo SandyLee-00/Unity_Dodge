@@ -63,6 +63,10 @@ public class PlayerDamaged : MonoBehaviour
         OnHittedEvent?.Invoke();
     }
 
+    public bool GetInvincibleStatus()
+    {
+        return HPBar.IsInvincible;
+    }
     
     private void OnCollisionStay2D(Collision2D collision)
     {

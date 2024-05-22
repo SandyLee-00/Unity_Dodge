@@ -29,15 +29,20 @@ public class UI_SkillPopUp : MonoBehaviour
     {
         for(int i = 0; i < skills.Length; i++)
         {
-            if (skills[i].fillAmount < 1f)
+            if (skillFillAmounts[i] < 1f)
             {
                 skillFillAmounts[i] += Time.deltaTime / playerSkill.coolDowns[i];
                 skills[i].fillAmount = skillFillAmounts[i];
             }
-            else
+            else if(skillFillAmounts[i] >= 1f)
             {
                 skills[i].fillAmount = 1f;
                 playerSkill.skillAvailablity[i] = true;
+            }
+            else
+            {
+                skills[i].fillAmount = skillFillAmounts[i];
+                skillFillAmounts[i] += Time.deltaTime / playerSkill.coolDowns[i];
             }
         }
     }

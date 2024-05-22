@@ -501,8 +501,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2544115459282185638, guid: ad2983eb314ad234884a9f515dcab0d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1998499575}
   m_SourcePrefab: {fileID: 100100000, guid: ad2983eb314ad234884a9f515dcab0d2, type: 3}
+--- !u!1 &1998499562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2544115459282185638, guid: ad2983eb314ad234884a9f515dcab0d2, type: 3}
+  m_PrefabInstance: {fileID: 1876620573}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1998499575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998499562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8811c0cc33fe0974c90ce538271e3699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillPopUp: {fileID: 0}
+  skillAvailablity: 0000
+  coolDowns:
+  - 5
+  - 10
 --- !u!1001 &8256077227994191117
 PrefabInstance:
   m_ObjectHideFlags: 0
