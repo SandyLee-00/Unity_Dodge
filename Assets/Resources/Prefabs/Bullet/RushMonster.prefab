@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5288795948764374376}
   - component: {fileID: -5042114054847044697}
   - component: {fileID: -830346190918180933}
-  - component: {fileID: 8026366065830855549}
+  - component: {fileID: 1696890543224450983}
   m_Layer: 0
   m_Name: RushMonster
   m_TagString: RushMonster
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!95 &8026366065830855549
+--- !u!95 &1696890543224450983
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
