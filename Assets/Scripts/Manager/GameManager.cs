@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     GameObject player;
 
+    public GameObject Player { get { return player; } }
+
     PlayerInputController playerController;
 
     const float MAXGAMEPLAYTIME = 60f;
