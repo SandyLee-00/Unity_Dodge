@@ -135,7 +135,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5612086881060289898}
   - {fileID: 6571759225019135939}
   m_Father: {fileID: 9220489873826955245}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -269,12 +268,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7021195946048184511}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.12, y: 0.58, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4434340817098171746}
+  m_Father: {fileID: 9220489873826955245}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9020277976155335802
 GameObject:
@@ -295,6 +294,7 @@ GameObject:
   - component: {fileID: 2177459414475042840}
   - component: {fileID: 4467899999409171015}
   - component: {fileID: 416825517069459848}
+  - component: {fileID: 3821641281903695812}
   m_Layer: 6
   m_Name: Enemy_3
   m_TagString: Monster
@@ -315,6 +315,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5612086881060289898}
   - {fileID: 4434340817098171746}
   - {fileID: 8633218985282671731}
   m_Father: {fileID: 0}
@@ -410,7 +411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorCharacter: {fileID: 6026937955799508776}
   animatorWeapon: {fileID: 4466846008364307412}
-  isRange: 0
+  isRange: 1
 --- !u!114 &133919934787722963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,7 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorCharacter: {fileID: 6026937955799508776}
   animatorWeapon: {fileID: 4466846008364307412}
-  isRange: 0
+  isRange: 1
   isCollidingwithTarget: 0
 --- !u!114 &2350949619352046759
 MonoBehaviour:
@@ -439,8 +440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f87b708d208c9649873978c167c6485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterScore: 1
-  deathSound: 
+  monsterScore: 50
+  deathSound: Dead
 --- !u!114 &5615541862173822458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,5 +504,22 @@ MonoBehaviour:
   animatorWeapon: {fileID: 4466846008364307412}
   isRange: 1
   isCollidingwithTarget: 0
-  pos: {fileID: 5612086881060289898}
-  boxSize: {x: 2, y: 2}
+  meleePos: {fileID: 5612086881060289898}
+  boxSize: {x: 0, y: 0}
+  projectileSpawnPosition: {fileID: 5612086881060289898}
+--- !u!114 &3821641281903695812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9020277976155335802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be1dc6127fe0534bba2b1f3435c7cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelCollisionLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  fxOnDestroy: 1

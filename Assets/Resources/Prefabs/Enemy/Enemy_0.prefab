@@ -316,7 +316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6430784017767707234
 Transform:
   m_ObjectHideFlags: 0
@@ -326,7 +326,7 @@ Transform:
   m_GameObject: {fileID: 3637304435798683824}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.120527, y: 10.341763, z: 0}
+  m_LocalPosition: {x: 10.42, y: 10.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -499,8 +499,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsChangeType: 2
-  maxHealth: 3
-  speed: 3
+  maxHealth: 11
+  speed: 1
   attackSO: {fileID: 11400000, guid: 114d4b5d4e857fb49943ca5e643d2519, type: 2}
 --- !u!114 &2117577229099981162
 MonoBehaviour:
@@ -518,8 +518,9 @@ MonoBehaviour:
   animatorWeapon: {fileID: 4311853632690693741}
   isRange: 0
   isCollidingwithTarget: 0
-  pos: {fileID: 2909074005649366344}
+  meleePos: {fileID: 2909074005649366344}
   boxSize: {x: 0.85, y: 1.26}
+  projectileSpawnPosition: {fileID: 2909074005649366344}
 --- !u!1 &4008985975708956667
 GameObject:
   m_ObjectHideFlags: 0

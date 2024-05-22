@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Monster
   - Item
+  - MonsterBullet
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Enemy
   - Level
   - Player
-  - 
+  - MonsterBullet
   - 
   - 
   - 

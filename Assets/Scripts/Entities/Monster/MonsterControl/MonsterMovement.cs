@@ -25,7 +25,7 @@ class MonsterMovement : MonsterController
     {
         if (Input.GetMouseButtonDown(0))
         {
-            ApplyKnockback(target.transform, stat.attackSO.knockbackPower, stat.attackSO.knockbackTime);//stat of projectile
+            //ApplyKnockback(target.transform, stat.attackSO.knockbackPower, stat.attackSO.knockbackTime);//stat of projectile
         }
     }
     
