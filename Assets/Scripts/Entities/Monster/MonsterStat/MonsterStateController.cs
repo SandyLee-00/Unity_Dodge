@@ -9,7 +9,7 @@ partial class MonsterStateController : MonsterController
 
     public event Action onDeath;
     public event Action onDamage;
-    public event Action onAttack;
+    public event Action<AttackSO> onAttack;
     public float CurrentHealth { get;  set; }
     public float MaxHealth => stat.maxHealth;
     public bool isCollidingwithTarget = false;
@@ -35,9 +35,10 @@ partial class MonsterStateController : MonsterController
             animatorCharacter.SetBool("Dead", true);
             CallDeath();
         }
-        if(timeSinceLastAttack >3f&& DistanceToTarget().magnitude<=5.0f)
+        if(timeSinceLastAttack > stat.attackSO.delay&& DistanceToTarget().magnitude<=5.0f)
         {
-            CallAttack();
+            IsAttacking = true;
+            CallAttack(stat.attackSO);
             animatorWeapon.SetTrigger("Attack");
             timeSinceLastAttack = 0f;
         }
@@ -56,8 +57,8 @@ partial class MonsterStateController : MonsterController
     {
         onDamage?.Invoke();
     }
-    private void CallAttack()
+    private void CallAttack(AttackSO attackSO)
     {
-        onAttack?.Invoke();
+        onAttack?.Invoke(stat.attackSO);
     }
 }

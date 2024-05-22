@@ -31,7 +31,7 @@ public class PlayerShooting : MonoBehaviour
         aimDirection = direction;
     }
 
-    private void OnShoot(AttackSO attackSO)
+    public void OnShoot(AttackSO attackSO)
     {
         RangedAttackSO RangedAttackSO = attackSO as RangedAttackSO;
         float projectilesAngleSpace = RangedAttackSO.multipleProjectilesAngle;
@@ -49,7 +49,7 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
-    private void CreateProjectile(RangedAttackSO rangedAttackSO, float angle)
+    public void CreateProjectile(RangedAttackSO rangedAttackSO, float angle)
     {
         GameObject obj = pool.SpawnFromPool(rangedAttackSO.bulletNameTag);
         obj.transform.position = projectileSpawnPosition.position;
