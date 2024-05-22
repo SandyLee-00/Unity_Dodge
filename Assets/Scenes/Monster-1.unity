@@ -1002,7 +1002,7 @@ MonoBehaviour:
     prefab: {fileID: 1658731030954092748, guid: e06455dda0c96354695481522323249d, type: 3}
     size: 20
   - tag: MonsterBullet
-    prefab: {fileID: 0}
+    prefab: {fileID: 1658731030954092748, guid: 7d3c427dcd177a4469ff71584a37c806, type: 3}
     size: 20
 --- !u!114 &2051541839
 MonoBehaviour:
@@ -1045,7 +1045,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterPrefab: {fileID: 3637304435798683824, guid: b76825df203bb8c478f6fdd513635db8, type: 3}
-  spawnInterval: 3
+  monsterSpawnInterval: 2
+  itemPrefab: []
+  itemSpawnInterval: 3
 --- !u!1001 &2783123364235456733
 PrefabInstance:
   m_ObjectHideFlags: 0
