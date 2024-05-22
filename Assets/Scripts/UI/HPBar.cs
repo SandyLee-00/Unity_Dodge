@@ -31,4 +31,18 @@ public class HPBar : MonoBehaviour
 
         return true;
     }
+
+    public bool IncreaseHP(float amount)
+    {
+        if (nowHP >= maxHP)
+        {
+            nowHP = maxHP;
+            return true;
+        }
+
+        nowHP += amount;
+        fillBar.fillAmount = (nowHP + amount) / maxHP;
+        return true;
+    }
+
 }
