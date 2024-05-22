@@ -69,6 +69,16 @@ public class PlayerInputController : MonoBehaviour
         isAttacking = value.isPressed;
     }
 
+    private void OnSkill1(InputValue value)
+    {
+        
+    }
+
+    private void OnSkill2(InputValue value)
+    {
+
+    }
+
     public void CallMoveEvent(Vector2 direction)
     {
         OnMoveEvent?.Invoke(direction);
@@ -82,5 +92,10 @@ public class PlayerInputController : MonoBehaviour
     public void CallAttackEvent(AttackSO attackSO)
     {
         OnAttackEvent?.Invoke(attackSO);
+    }
+
+    public void CallSkillEvenet()
+    {
+
     }
 }

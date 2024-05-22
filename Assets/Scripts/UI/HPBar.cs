@@ -27,8 +27,6 @@ public class HPBar : MonoBehaviour
         nowHP -= amount;
         fillBar.fillAmount = (nowHP - amount) / maxHP;
 
-        Debug.Log("테스트");
-
         return true;
     }
 }
