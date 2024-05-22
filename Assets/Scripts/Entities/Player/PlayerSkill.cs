@@ -29,14 +29,14 @@ public class PlayerSkill : MonoBehaviour
 
     public void UseSkill(Define.SkillType skillType)
     {
-        // 누른 스킬이 사용 가능한 상태일 때
+        // ?熬곣뱿?????꾪뀬???????띠럾??繞③뇡???⑤객臾????
         if (skillAvailablity[(int)skillType])
         {
-            // 스킬 사용 구현
+            // ???꾪뀬 ??????뚮뿭寃?
 
             ApplySkillColldown(skillType);
 
-            Debug.Log("클릭");
+            //Debug.Log("?????);
         }
     }
     void ApplySkillColldown(Define.SkillType skillType)
