@@ -255,6 +255,9 @@ MonoBehaviour:
   - tag: ScoreItem
     prefab: {fileID: 1411596040782910769, guid: abd479a7307b62143bc1ce91c58207b4, type: 3}
     size: 20
+  - tag: MonsterBullet
+    prefab: {fileID: 1658731030954092748, guid: 7d3c427dcd177a4469ff71584a37c806, type: 3}
+    size: 50
 --- !u!4 &946005531
 Transform:
   m_ObjectHideFlags: 0
