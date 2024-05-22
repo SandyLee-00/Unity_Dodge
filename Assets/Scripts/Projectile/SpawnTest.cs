@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpawnTest : MonoBehaviour
 {
-    //public ObjectPool pool;
     public GameObject monsterPrefab;
     public Transform[] spawnPointTest;
 
@@ -19,7 +18,7 @@ public class SpawnTest : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer > 4f)
+        if (timer > 1f)
         {
             MonsterSpawnTest();
             timer = 0f;
@@ -32,21 +31,9 @@ public class SpawnTest : MonoBehaviour
         
         if (monsterTest != null )
         {
-            //monsterTest.transform.position = spawnPointTest[Random.Range(1, spawnPointTest.Length)].position;
             Transform spawnPoint = spawnPointTest[Random.Range(1, spawnPointTest.Length)];
             monsterTest.transform.position = spawnPoint.position;
-            //Invoke("DestroyMonster", 3f);
             Destroy(monsterTest, 3f);
         }
     }
-
-    //private void DestroyMonster()
-    //{
-    //    GameObject[] monsters = GameObject.FindGameObjectsWithTag("MonsterBullet");
-
-    //    foreach (GameObject monster in monsters)
-    //    {
-    //        Destroy(monster);
-    //    }
-    //}
 }

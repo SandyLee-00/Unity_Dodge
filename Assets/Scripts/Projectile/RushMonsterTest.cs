@@ -43,7 +43,16 @@ public class RushMonsterTest : MonoBehaviour
     private void FlipSprite(bool v)
     {
         Vector3 scale = transform.localScale;
-        scale.x = v ? -1 : 1;
+        scale.x = v ? -0.7f : 0.7f;
         transform.localScale = scale;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            player.GetComponentInChildren<HPBar>().DecreaseHP(2);
+            gameObject.SetActive(false);
+        }
     }
 }
