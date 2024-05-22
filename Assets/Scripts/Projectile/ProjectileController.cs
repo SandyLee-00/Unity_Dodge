@@ -12,7 +12,7 @@ public class ProjectileController : MonoBehaviour
     private Vector2 direction;
     private bool isReady;
 
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D _rigidbody;
     private SpriteRenderer spriteRenderer;
     private TrailRenderer trailRenderer;
 
@@ -21,7 +21,7 @@ public class ProjectileController : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        rigidbody = GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
         trailRenderer = GetComponent<TrailRenderer>();
     }
 
@@ -39,7 +39,7 @@ public class ProjectileController : MonoBehaviour
             DestroyProjectile(transform.position, false);
         }
 
-        rigidbody.velocity = direction * attackData.speed;
+        _rigidbody.velocity = direction * attackData.speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
