@@ -6,7 +6,7 @@ public class PlayerSkill : MonoBehaviour
 {
     PlayerInputController playerController;
 
-    [SerializeField] UI_SkillPopUp skillPopUp;
+    UI_SkillPopUp skillPopUp;
 
     public bool[] skillAvailablity = { false, false };
 
@@ -24,9 +24,14 @@ public class PlayerSkill : MonoBehaviour
     {
         playerController = GetComponent<PlayerInputController>();
         characterStat = GetComponent<CharacterStatHandler>();
+        skillPopUp = FindAnyObjectByType<UI_SkillPopUp>();  
+    }
 
+    private void Start()
+    {
         oriSpeed = characterStat.CurrentStat.speed;
     }
+
     private void Update()
     {
         if (playerController.tapFirstSkill)

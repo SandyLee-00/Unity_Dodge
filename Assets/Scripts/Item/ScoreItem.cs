@@ -6,7 +6,7 @@ public class ScoreItem : Item
     {
         if (collision.CompareTag("Player"))
         {
-            Managers.Game.Score += 1000;
+            Managers.Game.Score += 100;
             gameObject.SetActive(false);
         }
     }
