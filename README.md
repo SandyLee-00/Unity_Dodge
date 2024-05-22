@@ -1,5 +1,42 @@
 # 던전 서바이벌 (Dungeon Survival)
 
+## 📖 목차
+
+**1. 🎥 프로젝트 소개**
+
+**2. 👨‍👨‍👧‍👦 팀원 및 역할**
+
+**3. 📜 와이어프레임**
+
+**4. ✨ 깃 컨벤션**
+
+**5. 💜 기능 구현**
+
+**6. 💡 트러블 슈팅**
+
+**7. 기타 참고사항**
+
+---
+    
+### 🎥 프로젝트 소개
+
+![리드미 배경화면](https://github.com/SandyLee-00/Unity_Dodge/assets/104573747/a750cd9c-3777-4b4c-9afb-81da52b2a029)
+![리드미 인게임 화면](https://github.com/SandyLee-00/Unity_Dodge/assets/104573747/96307546-7d98-418c-b6bc-2ab768615e75)
+
+**던전 서바이벌 (Dungeon Survival)은 밀려오는 몬스터와 공격으로부터**
+
+**생존해 나가는 게임입니다.**
+
+**지정된 시간 동안 버티고 적을 물리치며 점수를 모아 나가세요!**
+
+---
+
+### ⏲️ 개발기간
+
+ **2024.04.16(목) ~ 2024.05.23(목)**
+
+ ---
+
 ### 👨‍👨‍👧‍👦 팀원 및 역할
 
 **이서영 - Managers, GameManager, UIManager, SoundManager (동적 생성 및 기능 구현)** 🖥️
@@ -11,6 +48,7 @@
 **김강은 - ObjectPool, Projectile (오브젝트 풀 활용 Projectile 생성 및 반환 구현)** 🧨
 
 ---
+
 
 ### 📜 **와이어프레임**
 
@@ -33,6 +71,27 @@ https://drive.google.com/file/d/11qvmqeNqghScZhGCihI8cATSwYtxme9E/view?usp=shari
 **[REFECTOR] 코드 리팩토링**
 
 **[RESOURCE] Art/Sounds 파일 추가/수정**
+
+---
+
+**💜 기능 구현**
+
+**1. 무한 맵 생성을 통한 Player 주변 맵 확장**
+
+**2. Player의 근처의 랜덤한 지점에서 공격 자동 생성 로직**
+
+**3. Monster가 Player를 추적하는 로직**
+
+**4. Monster의 원거리 공격 구현**
+
+**5. ObjectPool을 통한 Projectile(PlayerBullet, MonsterBullet), Items 구현**
+
+**6. Item 기능 구현 (점수, 체력 회복)**
+
+**7. Skill 기능 구현 (이동속도 증가, 무적)**
+
+**8. Pointer Effector 2D를 이용한 무적공간 생성**
+
 
 ---
 
@@ -76,7 +135,7 @@ https://drive.google.com/file/d/11qvmqeNqghScZhGCihI8cATSwYtxme9E/view?usp=shari
 **미리 가져왔던 Player Object를 통해 AttackSO를 가져와 내부의 공격력 값을 받아와 해결함.**
 
 ---
-
+  
 ### 🖼️ 사용 에셋
 
 **언데드 서바이버 에셋 팩**
