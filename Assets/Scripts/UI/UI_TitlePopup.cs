@@ -36,7 +36,12 @@ public class UI_TitlePopup : MonoBehaviour
         {
             Debug.Log("ExitButton Clicked");
 
-            Application.Quit();
+            // 에디터에서 꺼주기
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
         });
 
         // TODO : Managers에 UI 매니저 추가하기 
