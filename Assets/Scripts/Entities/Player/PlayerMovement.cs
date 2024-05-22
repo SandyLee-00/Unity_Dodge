@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterStatHandler characterStatHandler;
     Rigidbody2D movementRigidbody;
 
-    [SerializeField] float movementSpeed = 5f;
+    // [SerializeField] float movementSpeed = 5f;
 
     Vector2 movementDirection = Vector2.zero;
 

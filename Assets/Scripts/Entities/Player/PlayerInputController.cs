@@ -8,7 +8,7 @@ public class PlayerInputController : MonoBehaviour
     public event Action<Vector2> OnLookEvent;
     public event Action<AttackSO> OnAttackEvent;
 
-    private Camera camera;
+    private Camera _camera;
     private float timeSinceLastAttack = float.MaxValue;
     private bool isAttacking;
 
@@ -21,7 +21,7 @@ public class PlayerInputController : MonoBehaviour
 
     private void Awake()
     {
-        camera = Camera.main;
+        _camera = Camera.main;
         stats = GetComponent<CharacterStatHandler>();
         playerSkill = GetComponent<PlayerSkill>();
     }
@@ -58,7 +58,7 @@ public class PlayerInputController : MonoBehaviour
         if (isAlive)
         {
             Vector2 newAim = value.Get<Vector2>();
-            Vector2 worldPos = camera.ScreenToWorldPoint(newAim);
+            Vector2 worldPos = _camera.ScreenToWorldPoint(newAim);
 
             newAim = (worldPos - (Vector2)transform.position).normalized;
 
