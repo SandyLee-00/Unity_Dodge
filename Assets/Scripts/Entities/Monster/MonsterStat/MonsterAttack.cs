@@ -25,11 +25,11 @@ class MonsterAttack : MonsterStateController
         Collider2D[] coliders2Ds = Physics2D.OverlapBoxAll(meleePos.position, boxSize, 0);
         foreach (Collider2D colider in coliders2Ds)
         {
-            if(colider.tag == "player")
+            if(colider.tag == "Player")
             {
                 target.SendMessage("CallHittedEvent");
                 
-                Debug.Log(colider+"공격");
+                Debug.Log(colider+"怨듦꺽");
             }
 
         }

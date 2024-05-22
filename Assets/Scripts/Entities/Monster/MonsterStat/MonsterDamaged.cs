@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using TMPro;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
@@ -6,7 +9,8 @@ public class MonsterDamaged : MonoBehaviour
 {
     private MonsterStateController state;
     protected new Rigidbody2D rigidbody;
-    [SerializeField] [Range(0.01f, 0.1f)] float healthChangeDelay = 0.01f;
+    public TextMeshProUGUI DamageTxt;
+    [SerializeField] [Range(0.1f, 0.3f)] float healthChangeDelay = 0.01f;
     private float timeSinceLastChange = float.MaxValue;
     private float attackDamage = 0f;
     private void Start()
@@ -15,22 +19,23 @@ public class MonsterDamaged : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         state.onDamage += Damaged;
         state.onDamage += ChangeHealth;
+        state.onDamage += UpdateText;
         timeSinceLastChange = 0f;
     }
+
     private void FixedUpdate()
     {
         timeSinceLastChange += Time.deltaTime;
-
     }
 
     void Damaged()
     {
-        float AlphaChange = (attackDamage / state.stat.maxHealth) / 1.5f;
+        float AlphaChange = (attackDamage / state.stat.maxHealth) / 4f;
         foreach (SpriteRenderer renderer in GetComponentsInChildren<SpriteRenderer>())
         {
 
             Color color = renderer.color;
-            color.a += AlphaChange;
+            color.a -= AlphaChange;
             renderer.color = color;
         }
     }
@@ -58,5 +63,18 @@ public class MonsterDamaged : MonoBehaviour
             attackDamage = state.target.GetComponent<CharacterStatHandler>().CurrentStat.attackSO.power;
             state.isCollidingwithTarget = true;
         }
+    }
+
+    private void UpdateText()
+    {
+        DamageTxt.text = "<sprite=11>-"+ attackDamage.ToString();
+        StartCoroutine(ClearTextAfterDelay(healthChangeDelay));
+    }
+
+    IEnumerator ClearTextAfterDelay(float delay)
+    {
+        // 지정한 시간만큼 대기
+        yield return new WaitForSeconds(delay);
+        DamageTxt.text = "";
     }
 }
