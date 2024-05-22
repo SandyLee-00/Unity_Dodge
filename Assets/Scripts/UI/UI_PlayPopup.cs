@@ -17,11 +17,6 @@ public class UI_PlayPopup : MonoBehaviour
 
     float leftSecond;
 
-    public void Refresh()
-    {
-        Managers.Game.Init();
-    }
-
     private void Awake()
     {
         OptionButton = transform.Find("HUD/OptionButton").GetComponent<Button>();
@@ -35,7 +30,7 @@ public class UI_PlayPopup : MonoBehaviour
 
     void Start()    
     {
-        Refresh();
+        Managers.Game.Init();
     }
 
     void Update()
