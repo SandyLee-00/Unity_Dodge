@@ -16,8 +16,7 @@ public class MonsterController : MonoBehaviour
     [SerializeField]internal Animator animatorCharacter;
     [SerializeField]internal Animator animatorWeapon;
     [SerializeField]internal bool isRange;
-
-    //protected bool IsAttacking { get; set; }
+    protected bool IsAttacking { get; set; }
 
     protected virtual void Awake()
     {
@@ -29,7 +28,7 @@ public class MonsterController : MonoBehaviour
 
     protected virtual void Start()
     {
-        
+        IsAttacking = false;
     }
     protected virtual void FixedUpdate()
     {
@@ -50,7 +49,8 @@ public class MonsterController : MonoBehaviour
     }
     protected void CallMoveEvent(Vector2 direction)
     {
-        OnMoveEvent?.Invoke(direction);
+        if(!IsAttacking)
+            OnMoveEvent?.Invoke(direction);
     }
 
 

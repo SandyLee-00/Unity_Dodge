@@ -249,6 +249,12 @@ MonoBehaviour:
   - tag: Bullet
     prefab: {fileID: 1658731030954092748, guid: e06455dda0c96354695481522323249d, type: 3}
     size: 20
+  - tag: HealthItem
+    prefab: {fileID: 8846476125283355093, guid: b5cf2448aaa650f41afe8f524693cc8b, type: 3}
+    size: 20
+  - tag: ScoreItem
+    prefab: {fileID: 1411596040782910769, guid: abd479a7307b62143bc1ce91c58207b4, type: 3}
+    size: 20
 --- !u!4 &946005531
 Transform:
   m_ObjectHideFlags: 0
@@ -277,7 +283,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterPrefab: {fileID: 3637304435798683824, guid: b76825df203bb8c478f6fdd513635db8, type: 3}
-  spawnInterval: 1
+  monsterSpawnInterval: 2
+  itemPrefab:
+  - {fileID: 8846476125283355093, guid: b5cf2448aaa650f41afe8f524693cc8b, type: 3}
+  - {fileID: 1411596040782910769, guid: abd479a7307b62143bc1ce91c58207b4, type: 3}
+  itemSpawnInterval: 3
 --- !u!1001 &1391326915
 PrefabInstance:
   m_ObjectHideFlags: 0
