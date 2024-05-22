@@ -76,4 +76,16 @@ public class PlayerDamaged : MonoBehaviour
             CallHittedEvent();
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "MonsterBullet")
+        {
+            if (timeSinceLastChange < healthChangeDelay)
+            {
+                return;
+            }
+
+            CallHittedEvent();
+        }
+    }
 }
