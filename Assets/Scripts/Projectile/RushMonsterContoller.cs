@@ -2,7 +2,7 @@ using System;
 using TreeEditor;
 using UnityEngine;
 
-public class RushMonsterTest : MonoBehaviour
+public class RushMonsterContoller : MonoBehaviour
 {
     [SerializeField] private float speed = 1f;
 
