@@ -11,12 +11,13 @@ class Spawner : MonoBehaviour
 {
     Random random = new Random();
 
-    private Transform Player;
+    private Transform player;
     ObjectPool pool;
 
     [SerializeField] 
     private GameObject monsterPrefab;
-    [SerializeField] private float monsterSpawnInterval = 2;
+    [SerializeField] 
+    private float monsterSpawnInterval = 2;
 
     [SerializeField]
     List<GameObject> itemPrefab;
@@ -30,7 +31,8 @@ class Spawner : MonoBehaviour
 
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
         InvokeRepeating("SpawnMonster", 0f, monsterSpawnInterval);
 
         InvokeRepeating("SpawnItem", 0f, itemSpawnInterval);
@@ -39,11 +41,8 @@ class Spawner : MonoBehaviour
     private void SpawnMonster()
     {
         Instantiate(monsterPrefab, transform);
-        int signX = random.Next(0, 2) == 0 ? 1 : -1;
-        float rdPosX = random.Next(10, 20) * signX;
-        int signY = random.Next(0, 2) == 0 ? 1 : -1;
-        float rdPosY = random.Next(10, 20) * signY;
-        monsterPrefab.transform.position = new Vector2(Player.position.x + rdPosX, Player.position.y + rdPosY);
+        
+        monsterPrefab.transform.position = GetRandomSpawnPosition(player.position, 20, 10);
     }
 
     private void SpawnItem()
@@ -52,15 +51,25 @@ class Spawner : MonoBehaviour
         int randomIndex = random.Next(0, itemPrefab.Count);
         GameObject item = itemPrefab[randomIndex];
         string itemName = item.name;
+
         Debug.Log(itemName);
         GameObject spawnedItem = pool.SpawnFromPool(itemName);
 
         // random position
-        int signX = random.Next(0, 2) == 0 ? 1 : -1;
-        float rdPosX = random.Next(3, 5) * signX;
-        int signY = random.Next(0, 2) == 0 ? 1 : -1;
-        float rdPosY = random.Next(3, 5) * signY;
+        spawnedItem.transform.position = GetRandomSpawnPosition(player.position, 5, 1);
+    }
 
-        spawnedItem.transform.position = new Vector2(Player.position.x + rdPosX, Player.position.y + rdPosY);
+    private Vector2 GetRandomSpawnPosition(Vector2 center, int maxRadius, int minRadius = 0)
+    {
+        // random angle
+        float angle = random.Next(0, 360);
+        Vector2 spawnDirection = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+        spawnDirection.Normalize();
+
+        // random distance
+        float randomDistance = random.Next(minRadius, maxRadius);
+        Vector2 spawnPosition = center + spawnDirection * randomDistance;
+
+        return spawnPosition;
     }
 }
