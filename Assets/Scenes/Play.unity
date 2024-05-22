@@ -306,6 +306,9 @@ MonoBehaviour:
   - {fileID: 8846476125283355093, guid: b5cf2448aaa650f41afe8f524693cc8b, type: 3}
   - {fileID: 1411596040782910769, guid: abd479a7307b62143bc1ce91c58207b4, type: 3}
   itemSpawnInterval: 3
+  RushMonsterPrefabs:
+  - {fileID: 3448096940497120829, guid: 8ee141c6211aad74f9e44de4e5e6d337, type: 3}
+  RushSpawnInterval: 2
 --- !u!1001 &1391326915
 PrefabInstance:
   m_ObjectHideFlags: 0
