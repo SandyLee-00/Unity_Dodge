@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,18 +13,22 @@ public class PlayerInputController : MonoBehaviour
     private bool isAttacking;
 
     public bool isAlive;
+    public bool tapFirstSkill;
+    public bool tapSecondSkill;
 
     protected CharacterStatHandler stats { get; private set; }
+    PlayerSkill playerSkill;
 
     private void Awake()
     {
         camera = Camera.main;
         stats = GetComponent<CharacterStatHandler>();
+        playerSkill = GetComponent<PlayerSkill>();
     }
 
     private void Update()
     {
-        if(isAlive)
+        if (isAlive)
             HandleAttackDelay();
     }
 
@@ -67,6 +69,16 @@ public class PlayerInputController : MonoBehaviour
     private void OnFire(InputValue value)
     {
         isAttacking = value.isPressed;
+    }
+
+    private void OnFirstSkill(InputValue value)
+    {
+        tapFirstSkill = value.isPressed;
+    }
+
+    private void OnSecondSkill(InputValue value)
+    {
+        tapSecondSkill = value.isPressed;
     }
 
     public void CallMoveEvent(Vector2 direction)
