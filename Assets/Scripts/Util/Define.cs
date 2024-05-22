@@ -16,4 +16,10 @@ public class Define
         Intro,
         Play
     }
+
+    public enum SkillType
+    {
+        SpeedUp,
+        Invincibility
+    }
 }

@@ -38,7 +38,7 @@ public class PlayerDamaged : MonoBehaviour
     }
     private void PlayerHitted()
     {
-        if (healthChangeDelay > timeSinceLastChange)
+        if (healthChangeDelay < timeSinceLastChange)
         {
             ChangeHealth();
         }
@@ -46,7 +46,6 @@ public class PlayerDamaged : MonoBehaviour
 
     void ChangeHealth()
     {
-
         if (!HPBar.DecreaseHP(1f))
         {
             playerSprite.sprite = deadSprite;
@@ -55,9 +54,8 @@ public class PlayerDamaged : MonoBehaviour
             playerCollider.enabled = false;
 
             playerAniController.Dead();
-
-            timeSinceLastChange = 0f;
         }
+        timeSinceLastChange = 0f;
     }
 
     private void CallHittedEvent()
