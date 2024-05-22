@@ -14,13 +14,13 @@ class Spawner : MonoBehaviour
     private Transform player;
     ObjectPool pool;
 
-    [SerializeField] 
-    private GameObject monsterPrefab;
+    [SerializeField]
+    List<GameObject> monsterPrefabs;
     [SerializeField] 
     private float monsterSpawnInterval = 2;
 
     [SerializeField]
-    List<GameObject> itemPrefab;
+    List<GameObject> itemPrefabs;
     [SerializeField]
     private float itemSpawnInterval = 3;
 
@@ -40,16 +40,23 @@ class Spawner : MonoBehaviour
 
     private void SpawnMonster()
     {
-        Instantiate(monsterPrefab, transform);
-        
-        monsterPrefab.transform.position = GetRandomSpawnPosition(player.position, 20, 10);
+        // random monster
+        int randomIndex = random.Next(0, monsterPrefabs.Count);
+        GameObject monster = monsterPrefabs[randomIndex];
+        string monsterName = monster.name;
+
+        Debug.Log(monsterName);
+
+        Vector3 spawnPosition = GetRandomSpawnPosition(player.position, 20, 10);
+
+        Instantiate(monster, spawnPosition, Quaternion.identity);
     }
 
     private void SpawnItem()
     {
         // random item
-        int randomIndex = random.Next(0, itemPrefab.Count);
-        GameObject item = itemPrefab[randomIndex];
+        int randomIndex = random.Next(0, itemPrefabs.Count);
+        GameObject item = itemPrefabs[randomIndex];
         string itemName = item.name;
 
         Debug.Log(itemName);

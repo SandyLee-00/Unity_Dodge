@@ -282,9 +282,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97b73801598bc144b4143e7cfffc9f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterPrefab: {fileID: 3637304435798683824, guid: b76825df203bb8c478f6fdd513635db8, type: 3}
+  monsterPrefabs:
+  - {fileID: 3637304435798683824, guid: b76825df203bb8c478f6fdd513635db8, type: 3}
+  - {fileID: 9020277976155335802, guid: 394ce4e65a53bc144b2f8c91d55d14b8, type: 3}
   monsterSpawnInterval: 2
-  itemPrefab:
+  itemPrefabs:
   - {fileID: 8846476125283355093, guid: b5cf2448aaa650f41afe8f524693cc8b, type: 3}
   - {fileID: 1411596040782910769, guid: abd479a7307b62143bc1ce91c58207b4, type: 3}
   itemSpawnInterval: 3
