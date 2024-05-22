@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &495643060 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6990284214529142182, guid: ad2983eb314ad234884a9f515dcab0d2, type: 3}
-  m_PrefabInstance: {fileID: 2668031266768017843}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1918828895
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,9 +259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65cce9e487d653344afb64327f1ad152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 495643060}
-  monsterPrefab: {fileID: 186467016078904690, guid: b76825df203bb8c478f6fdd513635db8, type: 3}
-  spawnInterval: 3
 --- !u!1001 &1086785766919385927
 PrefabInstance:
   m_ObjectHideFlags: 0

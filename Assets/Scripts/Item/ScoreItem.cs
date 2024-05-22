@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class ScoreItem : Item
 {
@@ -7,7 +7,7 @@ public class ScoreItem : Item
         if (collision.CompareTag("Player"))
         {
             Managers.Game.Score += 1000;
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
