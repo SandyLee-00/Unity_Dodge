@@ -33,16 +33,16 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Skill1",
-                    "type": "Value",
+                    "name": "FirstSkill",
+                    "type": "Button",
                     "id": "3251ada8-a106-424c-b38e-1213ceb6f4ce",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Skill2",
+                    "name": "SecondSkill",
                     "type": "Button",
                     "id": "572ff4c6-c53f-434f-9f5c-8ee2eb554340",
                     "expectedControlType": "Button",
@@ -147,7 +147,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Skill1",
+                    "action": "FirstSkill",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -158,7 +158,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Skill2",
+                    "action": "SecondSkill",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

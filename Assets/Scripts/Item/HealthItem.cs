@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class HealthItem : Item
 { 
@@ -6,7 +6,7 @@ public class HealthItem : Item
     {
         if (collision.CompareTag("Player"))
         {
-            player.GetComponent<HPBar>().IncreaseHP(10);
+            player.GetComponentInChildren<HPBar>().IncreaseHP(10);
             Destroy(gameObject);
         }
     }
