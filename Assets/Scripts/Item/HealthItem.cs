@@ -6,7 +6,7 @@ public class HealthItem : Item
     {
         if (collision.CompareTag("Player"))
         {
-            player.GetComponentInChildren<HPBar>().IncreaseHP(10);
+            player.GetComponentInChildren<HPBar>().IncreaseHP(3);
             gameObject.SetActive(false);
         }
     }
