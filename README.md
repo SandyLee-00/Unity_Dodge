@@ -39,7 +39,7 @@
 
 ### 👨‍👨‍👧‍👦 팀원 및 역할
 
-**이서영 - Managers, GameManager, UIManager, SoundManager (동적 생성 및 기능 구현)** 🖥️
+**이서영 - Manager, UI, Sound, Item (프레임워크, UI기능, 아이템 구현)** 🖥️
 
 **박도현 - Player (플레이어 움직임, 투사체 발사, Player 관련 충돌 처리 등 기능 구현)** 👦
 
@@ -76,9 +76,9 @@ https://drive.google.com/file/d/11qvmqeNqghScZhGCihI8cATSwYtxme9E/view?usp=shari
 
 **💜 기능 구현**
 
-**1. 무한 맵 생성을 통한 Player 주변 맵 확장**
+**1. 무한 맵을 통한 Player의 자유로운 이동**
 
-**2. Player의 근처의 랜덤한 지점에서 공격 자동 생성 로직**
+**2. Player의 근처의 랜덤한 지점에서 공격, 아이템 자동 생성 로직**
 
 **3. Monster가 Player를 추적하는 로직**
 
