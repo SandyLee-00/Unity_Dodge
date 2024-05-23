@@ -12,6 +12,7 @@ class MonsterMovement : MonsterController
     {
         base.Start();
         OnMoveEvent += ApplyMove;
+        state = GetComponent<MonsterStateController>();
     }
     protected override void FixedUpdate()
     {
