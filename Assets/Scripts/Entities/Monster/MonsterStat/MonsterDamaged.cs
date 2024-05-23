@@ -48,12 +48,6 @@ public class MonsterDamaged : MonoBehaviour
         timeSinceLastChange = 0f;
         state.CurrentHealth -= attackDamage;
         state.CurrentHealth = Mathf.Clamp(state.CurrentHealth, 0, state.MaxHealth);
-
-        if (state.CurrentHealth <= 0f)
-        {
-            //二쎌쓬
-        }
-        Debug.Log(state.CurrentHealth);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -73,7 +67,6 @@ public class MonsterDamaged : MonoBehaviour
 
     IEnumerator ClearTextAfterDelay(float delay)
     {
-        // 지정한 시간만큼 대기
         yield return new WaitForSeconds(delay);
         DamageTxt.text = "";
     }

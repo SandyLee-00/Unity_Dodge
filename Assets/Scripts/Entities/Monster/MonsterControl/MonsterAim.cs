@@ -30,9 +30,8 @@ public class MonsetAim : MonoBehaviour
         }
         
     }
-    //Vector2 flipPivotPosition = new Vector2(-0.432f, 0.04f);
-    //Vector2 originPosition = new Vector2(0.531f,-0.025f);
-    //Enemy3 Vector2(-0.33,-0.24)/ (0.4,-0.24)
+    //Enemy0 flip,origin Vector2(-0.432f, 0.04f)/(0.531f,-0.025f);
+    //Enemy3 flip,origin Vector2(-0.33,-0.24)/ (0.4,-0.24)
     private void ApplyLook(Vector2 direction)
     {
         float rotZ = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
@@ -58,14 +57,12 @@ public class MonsetAim : MonoBehaviour
             armPivot.rotation = Quaternion.Euler(new Vector3(0,0,51f));
             armRenderer.flipX = true; 
             armPivot.localPosition = flipPivotPosition;
-            //armRenderer.transform.localRotation = Quaternion.Euler(0, 0, 60f);
         }
         else
         {
             armPivot.rotation = Quaternion.Euler(Vector3.zero);
             armRenderer.flipX = false;
             armPivot.localPosition = originPosition;
-            //armRenderer.transform.localRotation = Quaternion.Euler(0, 0, -22f);
         }
     }
 }

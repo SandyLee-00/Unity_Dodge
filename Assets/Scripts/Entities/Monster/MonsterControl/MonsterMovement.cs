@@ -23,9 +23,10 @@ class MonsterMovement : MonsterController
     }
     protected void Update() 
     {
-        if (Input.GetMouseButtonDown(0))
+        if (state.isCollidingwithTarget)
         {
-            //ApplyKnockback(target.transform, stat.attackSO.knockbackPower, stat.attackSO.knockbackTime);//stat of projectile
+            ApplyKnockback(target.transform,
+            state.target.GetComponent<CharacterStatHandler>().CurrentStat.attackSO.knockbackPower, state.target.GetComponent<CharacterStatHandler>().CurrentStat.attackSO.knockbackTime);
         }
     }
     
